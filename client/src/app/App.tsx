@@ -1,7 +1,9 @@
+import "./index.scss";
+
 export const App =  () => {
     return (
         <div>
-            Initial React app Ts
+            Школа креативных индустрий
         </div>
     );
 }
