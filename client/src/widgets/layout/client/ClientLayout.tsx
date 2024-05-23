@@ -1,19 +1,16 @@
 import {Outlet} from "react-router";
+import {Header, Footer} from "@src/widgets/layout/client/section";
 
 export const ClientLayout = () => {
   return (
     <>
-      <header>
-        client
-      </header>
+      <Header/>
 
       <main>
         <Outlet/>
       </main>
 
-      <footer>
-        footer
-      </footer>
+      <Footer/>
     </>
   );
 };

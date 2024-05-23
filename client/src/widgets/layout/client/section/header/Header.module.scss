@@ -1,0 +1,7 @@
+@use "@src/shared/scss/func/_func.scss";
+
+.container {
+	width: func.vw(1380, 1440);
+	margin-inline: auto;
+	overflow-x: hidden;
+}
