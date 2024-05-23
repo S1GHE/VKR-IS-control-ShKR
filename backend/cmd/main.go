@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"backend/interanl/app"
+	"backend/pkg/helpers"
+)
 
 func main() {
-	fmt.Println("Init backend module")
+	const op = "cmd.main.main"
+	application := new(app.App)
+
+	if err := application.Run(); err != nil {
+		panic(helpers.LogSprintF(op, err))
+	}
 }
