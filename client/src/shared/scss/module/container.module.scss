@@ -1,0 +1,35 @@
+@use "@src/shared/scss/func/func";
+
+.container{
+  width: func.vw(1440, 1920);
+  margin-inline: auto;
+  overflow: hidden;
+  
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
+}
+
+.wrapper{
+  padding-inline: 0;
+
+  @media (max-width: 1440px) {
+    padding-inline: func.vw(20, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding-inline: func.vw(20, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding-inline: func.vw(20, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding-inline: func.vw(20, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding-inline: func.vw(20, 420);
+  }
+}
