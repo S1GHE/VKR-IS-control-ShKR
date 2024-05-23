@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@types/css-modules": "^1.0.5",
     "@types/node": "^20.11.17",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
@@ -29,6 +30,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
+    "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
