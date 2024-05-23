@@ -53,7 +53,7 @@ export const buildLoader = (options: BuildOptions): Array<webpack.RuleSetRule> =
     }
 
     const fileLoader = {
-        test: /\.(png|svg|jpg|jpeg|webp)$/i,
+        test: /\.(png|jpg|jpeg|webp)$/i,
         use: [
             {
                 loader: 'file-loader',
