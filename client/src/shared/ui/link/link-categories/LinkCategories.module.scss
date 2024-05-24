@@ -1,0 +1,41 @@
+@use "@src/shared/scss/func/func";
+
+.link_categories{
+  display: inline-block;
+  border: 2px solid var(--gray);
+  background-color: white;
+  color: var(--black);
+  padding: func.vw(12, 1920);
+  border-radius: func.vw(5, 1920);
+  transition: 300ms;
+
+  &:hover{
+    background-color: var(--black);
+    color: white;
+  }
+  
+  @media (max-width: 1440px) {
+    padding: func.vw(12, 1440);
+    border-radius: func.vw(5, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding: func.vw(12, 960);
+    border-radius: func.vw(5, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding: func.vw(12, 720);
+    border-radius: func.vw(5, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: func.vw(12, 540);
+    border-radius: func.vw(5, 540);
+  }
+  
+  @media (max-width: 420px) {
+    padding: func.vw(12, 420);
+    border-radius: func.vw(5, 420);
+  }
+}

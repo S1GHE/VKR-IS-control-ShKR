@@ -1,0 +1,82 @@
+@use "@src/shared/scss/func/func";
+
+.container{
+  margin-block: func.vw(20, 1920);
+  
+  @media (max-width: 1440px) {
+    margin-block: func.vw(20, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: func.vw(20, 1440);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: func.vw(20, 1440);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(20, 540);
+  }
+  
+  @media (max-width: 420px) {
+    margin-block: func.vw(20, 420);
+  }
+}
+
+.wrapper{
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
+}
+
+.link_container{
+  background-color: var(--gray-light);
+  border-radius: func.vw(10, 1920);
+  width: 60%;
+
+  h1{
+    padding: 24px;
+    word-wrap: break-word;
+  }
+
+  @media (max-width: 720px) {
+    width: 100%;
+  }
+}
+
+.link_wrapper{
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slider{
+  flex: 1;
+  width: 40%;
+  min-height: 300px;
+  position: relative;
+  border-radius: func.vw(10, 1920);
+  overflow: hidden;
+
+  img{
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+
+  @media (max-width: 720px) {
+    width: 100%;
+  }
+}
