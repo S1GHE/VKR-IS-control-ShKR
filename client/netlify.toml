@@ -1,0 +1,11 @@
+[build]
+# Папка, в которую Webpack собирает проект
+publish = "build"
+# Команда для сборки проекта
+command = "npm run build"
+
+[[redirects]]
+# Правило для перенаправления всех запросов на index.html
+from = "/*"
+to = "/index.html"
+status = 200
