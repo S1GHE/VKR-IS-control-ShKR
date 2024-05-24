@@ -12,7 +12,7 @@ export const CareerSkills = () => {
     Categories.getCategories().then(
       (res) => {
         setCategories(res.data.categories)
-      }
+      }ef
     ).catch((err) => console.log(err))
   }, [])
 
