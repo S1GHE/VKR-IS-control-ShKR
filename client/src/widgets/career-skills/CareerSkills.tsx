@@ -20,7 +20,7 @@ export const CareerSkills = () => {
     <div className={cls.container}>
       <div className={cls.wrapper}>
         <div className={cls.link_container}>
-          <h1 className={TextModule.h_64}>Получите актуальную специальность</h1>
+          <h1 className={TextModule.h_64}>Получите актуальную специальность Ильдар</h1>
 
           <div className={cls.link_wrapper}>
             {
