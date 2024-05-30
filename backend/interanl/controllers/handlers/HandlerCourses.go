@@ -35,7 +35,11 @@ func (h *Handlers) PostCreateCourses(c *gin.Context) {
 	fileExt := strings.ToLower(filepath.Ext(file.Filename))
 	if fileExt != ".svg" {
 		h.respondWithError(c, op, http.StatusBadRequest, fmt.Errorf("invalid file type: only SVG files are allowed"))
-		return
+
+		c.JSON(http.StatusOK, gin.H{
+			"status": http.StatusBadRequest,
+			"msg":    "invalid file type: only SVG files are allowed",
+		})
 	}
 
 	fileName := uuid.New().String() + fileExt
@@ -65,5 +69,30 @@ func (h *Handlers) PostCreateCourses(c *gin.Context) {
 		"status":   http.StatusOK,
 		"msg":      "Запись успешно добавлена",
 		"courseId": id,
+	})
+}
+
+func (h *Handlers) GetAllCourses(c *gin.Context) {
+	const op = "internal.controllers.handlers.GetAllCourses"
+
+	courses, err := h.store.Courses().GetAllCourse()
+	if err != nil {
+		h.respondWithError(c, op, http.StatusInternalServerError, err)
+
+		c.JSON(http.StatusOK, gin.H{
+			"status": http.StatusInternalServerError,
+			"msg":    "invalid file type: only SVG files are allowed",
+		})
+	}
+
+	baseURL := fmt.Sprintf("%s://%s", "http", c.Request.Host)
+
+	for i := range courses {
+		courses[i].ImgUrl = fmt.Sprintf("%s/%s", baseURL, courses[i].ImgUrl)
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":  http.StatusOK,
+		"courses": courses,
 	})
 }

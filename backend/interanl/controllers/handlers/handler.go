@@ -42,6 +42,7 @@ func (h *Handlers) New() *gin.Engine {
 		var courses = api.Group("/courses")
 		{
 			courses.POST("/", h.PostCreateCourses)
+			courses.GET("/", h.GetAllCourses)
 		}
 	}
 
