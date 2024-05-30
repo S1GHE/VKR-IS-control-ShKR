@@ -1,5 +1,35 @@
 @use "@src/shared/scss/func/func";
 
+.p_12{
+    font-weight: normal;
+    font-size: func.vw(12, 1920);
+
+    &_bold{
+        @extend .p_12;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 1440px) {
+        font-size: func.vw(12, 1440);
+    }
+    
+    @media (max-width: 960px) {
+        font-size: func.vw(12, 960);
+    }
+    
+    @media (max-width: 720px) {
+        font-size: func.vw(12, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(12, 540);
+    }
+    
+    @media (max-width: 420px) {
+        font-size: func.vw(12, 420);
+    }
+}
+
 .p_16{
     font-weight: normal;
     font-size: func.vw(16, 1920);
@@ -27,6 +57,36 @@
     
     @media (max-width: 420px) {
         font-size: func.vw(16, 420);
+    }
+}
+
+.p_18{
+    font-weight: normal;
+    font-size: func.vw(18, 1920);
+
+    &_bold{
+        @extend .p_18;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 1440px) {
+        font-size: func.vw(18, 1440);
+    }
+    
+    @media (max-width: 960px) {
+        font-size: func.vw(18, 960);
+    }
+    
+    @media (max-width: 720px) {
+        font-size: func.vw(18, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(18, 540);
+    }
+    
+    @media (max-width: 420px) {
+        font-size: func.vw(18, 420);
     }
 }
 
@@ -72,10 +132,34 @@
     }
 
     @media (max-width: 540px) {
-        font-size: func.vw(28, 540);
+        font-size: func.vw(32, 540);
     }
 
     @media (max-width: 420px) {
-        font-size: func.vw(28, 420);
+        font-size: func.vw(32, 420);
+    }
+}
+
+.h_24{
+    font-size: func.vw(24, 1920);
+
+    @media (max-width: 1440px) {
+        font-size: func.vw(24, 1440);
+    }
+
+    @media (max-width: 960px) {
+        font-size: func.vw(24, 960);
+    }
+
+    @media (max-width: 720px) {
+        font-size: func.vw(24, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(24, 540);
+    }
+
+    @media (max-width: 420px) {
+        font-size: func.vw(24, 420);
     }
 }

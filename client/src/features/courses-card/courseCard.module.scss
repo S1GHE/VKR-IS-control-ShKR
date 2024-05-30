@@ -1,0 +1,96 @@
+@use "@src/shared/scss/func/func";
+
+.card_continer{
+    border-radius: func.vw(10, 1920);
+    border: 2px solid var(--gray);
+    cursor: pointer;
+
+    @media (max-width: 1440px) {
+        border-radius: func.vw(10, 1440);
+    }
+
+    @media (max-width: 960px) {
+        border-radius: func.vw(10, 960);
+    }
+
+    @media (max-width: 720px) {
+        border-radius: func.vw(10, 720);
+    }
+
+    @media (max-width: 540px) {
+        border-radius: func.vw(10, 540);
+    }
+
+    @media (max-width: 420px) {
+        border-radius: func.vw(10, 420);
+    }
+}
+
+.card_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: func.vw(8, 1920);
+    padding: func.vw(24, 1920);
+
+    @media (max-width: 1440px) {
+        gap: func.vw(8, 1440);
+        padding: func.vw(24, 1440);
+    }
+
+    @media (max-width: 960px) {
+        gap: func.vw(8, 960);
+        padding: func.vw(24, 960);
+    }
+
+    @media (max-width: 720px) {
+        gap: func.vw(8, 720);
+        padding: func.vw(24, 720);
+    }
+
+    @media (max-width: 540px) {
+        gap: func.vw(8, 540);
+        padding: func.vw(24, 540);
+    }
+
+    @media (max-width: 420px) {
+        gap: func.vw(8, 420);
+        padding: func.vw(24, 420);
+    }
+}
+
+.card_categories{
+    display: flex;
+    align-items: center;
+    color: var(--black-light);
+    gap: func.vw(8, 1920);
+
+    @media (max-width: 1440px) {
+        gap: func.vw(8, 1440);
+    }
+}
+
+.card_price{
+    display: flex;
+    align-items: center;
+    gap: func.vw(6, 1920);
+
+    @media (max-width: 1440px) {
+        gap: func.vw(6, 1440);
+    }
+
+    @media (max-width: 960px) {
+        gap: func.vw(6, 960);
+    }
+
+    @media (max-width: 720px) {
+        gap: func.vw(6, 720);
+    }
+
+    @media (max-width: 540px) {
+        gap: func.vw(6, 540);
+    }
+
+    @media (max-width: 420px) {
+        gap: func.vw(6, 420);
+    }
+}

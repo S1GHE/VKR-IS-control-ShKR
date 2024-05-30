@@ -33,3 +33,13 @@
     margin-block: func.vw(24, 420);
   }
 }
+
+.header_list_courses{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.header_text{
+  margin-block: func.vw(32, 1920);
+}

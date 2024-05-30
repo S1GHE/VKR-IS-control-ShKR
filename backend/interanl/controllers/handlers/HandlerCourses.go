@@ -35,11 +35,7 @@ func (h *Handlers) PostCreateCourses(c *gin.Context) {
 	fileExt := strings.ToLower(filepath.Ext(file.Filename))
 	if fileExt != ".svg" {
 		h.respondWithError(c, op, http.StatusBadRequest, fmt.Errorf("invalid file type: only SVG files are allowed"))
-
-		c.JSON(http.StatusOK, gin.H{
-			"status": http.StatusBadRequest,
-			"msg":    "invalid file type: only SVG files are allowed",
-		})
+		return
 	}
 
 	fileName := uuid.New().String() + fileExt
@@ -72,17 +68,48 @@ func (h *Handlers) PostCreateCourses(c *gin.Context) {
 	})
 }
 
+func (h *Handlers) PostCreateCoursesDesc(c *gin.Context) {
+	const op = "internal.controllers.handlers.PostCreateCoursesDesc"
+	var req struct {
+		Name     string `form:"name" binding:"required"`
+		Duration string `form:"duration" binding:"required"`
+		CourseID string `form:"course_id" binding:"required"`
+	}
+
+	if err := c.ShouldBind(&req); err != nil {
+		h.respondWithError(c, op, http.StatusBadRequest, err)
+		return
+	}
+
+	coursesDesc := &model.CoursesDesc{
+		ID:       uuid.New().String(),
+		Name:     req.Name,
+		Duration: req.Duration,
+		CourseID: req.CourseID,
+	}
+
+	id, err := h.store.Courses().CreateNewDesc(coursesDesc)
+	if err != nil {
+		h.respondWithError(c, op, http.StatusInternalServerError, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":       http.StatusOK,
+		"msg":          "Запись успешно добавлена",
+		"categoriesId": id,
+	})
+}
+
 func (h *Handlers) GetAllCourses(c *gin.Context) {
 	const op = "internal.controllers.handlers.GetAllCourses"
+	id := c.Param("id")
 
-	courses, err := h.store.Courses().GetAllCourse()
+	courses, err := h.store.Courses().GetAllCourse(id)
 	if err != nil {
 		h.respondWithError(c, op, http.StatusInternalServerError, err)
 
-		c.JSON(http.StatusOK, gin.H{
-			"status": http.StatusInternalServerError,
-			"msg":    "invalid file type: only SVG files are allowed",
-		})
+		return
 	}
 
 	baseURL := fmt.Sprintf("%s://%s", "http", c.Request.Host)
@@ -94,5 +121,21 @@ func (h *Handlers) GetAllCourses(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"status":  http.StatusOK,
 		"courses": courses,
+	})
+}
+
+func (h *Handlers) GetAllCoursesDesc(c *gin.Context) {
+	const op = "internal.controllers.handlers.GetAllCourses"
+	id := c.Param("id")
+
+	dsc, err := h.store.Courses().GetCourseDesc(id)
+	if err != nil {
+		h.respondWithError(c, op, http.StatusInternalServerError, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":  http.StatusOK,
+		"courses": dsc,
 	})
 }

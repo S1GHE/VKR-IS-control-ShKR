@@ -8,6 +8,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+	"net/http"
 	"path/filepath"
 )
 
@@ -42,10 +43,14 @@ func (h *Handlers) New() *gin.Engine {
 		var courses = api.Group("/courses")
 		{
 			courses.POST("/", h.PostCreateCourses)
-			courses.GET("/", h.GetAllCourses)
+			courses.GET("/:id", h.GetAllCourses)
+
+			courses.POST("/desc", h.PostCreateCoursesDesc)
+			courses.GET("/desc/:id", h.GetAllCoursesDesc)
 		}
 	}
 
+	router.Use(staticCORS())
 	router.Static("/uploads", filepath.Join("uploads"))
 
 	if err := h.store.Open(); err != nil {
@@ -53,6 +58,26 @@ func (h *Handlers) New() *gin.Engine {
 	}
 
 	return router
+}
+
+func staticCORS() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		if c.Request.Method == "OPTIONS" {
+			c.Header("Access-Control-Allow-Origin", "*")
+			c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+			c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+			c.AbortWithStatus(http.StatusNoContent)
+			return
+		}
+
+		if c.Request.URL.Path == "/uploads" || c.Request.URL.Path == "/uploads/courses" {
+			c.Header("Access-Control-Allow-Origin", "*")
+			c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+			c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+		}
+
+		c.Next()
+	}
 }
 
 func (h *Handlers) respondWithError(c *gin.Context, op string, statusCode int, err error) {

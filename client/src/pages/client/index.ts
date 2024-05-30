@@ -1,12 +1,12 @@
 import {lazy} from "react";
 
-export const Home = lazy(
+export const HomeChunk = lazy(
   () => import("@src/pages/client/public/home/Home").then(
     m => ({default: m.Home})
   )
 )
 
-export const Catalog = lazy(
+export const CatalogChunk = lazy(
   () => import("@src/pages/client/public/catalog/Catalog").then(
     m => ({default: m.Catalog})
   )

@@ -1,6 +1,8 @@
 package middleware
 
-import "github.com/gin-contrib/cors"
+import (
+	"github.com/gin-contrib/cors"
+)
 
 func CorsMiddleware() cors.Config {
 	configCors := cors.DefaultConfig()

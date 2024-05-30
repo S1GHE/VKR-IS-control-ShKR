@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {Catalog, CustomerAdmin, Home, MainAdmin} from "@src/pages/client";
+import {CatalogChunk, CustomerAdmin, HomeChunk, MainAdmin} from "@src/pages/client";
 
 interface IPaths {
   to: string
@@ -7,8 +7,8 @@ interface IPaths {
 }
 
 export const ClientRoutesPublic:Array<IPaths> = [
-  {to: "/", element: <Home/>},
-  {to: "/catalog/:id", element: <Catalog/>}
+  {to: "/", element: <HomeChunk/>},
+  {to: "/catalog/:id", element: <CatalogChunk/>}
 ]
 
 export const AdminRoutes: Array<IPaths> = [

@@ -7,6 +7,7 @@ import {useClass, useResize} from "@src/shared/hooks";
 import CaretDown from "@src/shared/assets/ui/caret.svg"
 import {BigBtn} from "@src/shared/ui/btn/big-btn/BigBtn";
 import BurgerImage from "@src/shared/assets/header/burger.svg"
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const globalResize = useResize()
@@ -26,9 +27,9 @@ export const Header = () => {
   return (
     <header className={HeaderStyle.container_static}>
       <div className={HeaderStyle.container_fixed}>
-        <div className={HeaderStyle.logoImage}>
+        <Link to={'/'} className={HeaderStyle.logoImage}>
           <Logo viewBox={"0 0 179 32"}/>
-        </div>
+        </Link>
         {globalResize.isScreenMd ?
           <div className={useClass([TextModule.p_16, HeaderStyle.navigationButtons])}>
             <MainBtn to={'/'} state={"gray"}>Компаниям</MainBtn>

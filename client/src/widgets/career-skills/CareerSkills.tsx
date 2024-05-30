@@ -33,7 +33,7 @@ export const CareerSkills = () => {
           </div>
         </div>
         {
-          isLoaded && <Swiper
+          isLoaded ? <Swiper
                 modules={[Pagination, Autoplay]}
                 pagination={{clickable: true}}
                 loop={true}
@@ -52,6 +52,7 @@ export const CareerSkills = () => {
               <img className={cls.slider__img_container} src={el.ImageUrl} alt={el.Description}/>
             </SwiperSlide>)}
             </Swiper>
+            : <div>Load...</div>
         }
       </div>
     </div>
