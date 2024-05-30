@@ -8,6 +8,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+	"path/filepath"
 )
 
 type Handlers struct {
@@ -37,7 +38,14 @@ func (h *Handlers) New() *gin.Engine {
 			categories.POST("/", h.PostCreateCategories)
 			categories.GET("/", h.GetAllCategories)
 		}
+
+		var courses = api.Group("/courses")
+		{
+			courses.POST("/", h.PostCreateCourses)
+		}
 	}
+
+	router.Static("/uploads", filepath.Join("uploads"))
 
 	if err := h.store.Open(); err != nil {
 		h.log.Warning(helpers.LogSprintF(op, err))

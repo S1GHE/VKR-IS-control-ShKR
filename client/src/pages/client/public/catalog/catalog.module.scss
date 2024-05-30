@@ -1,0 +1,35 @@
+@use "@src/shared/scss/func/func";
+
+.header_list{
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: func.vw(8, 1920);
+  margin-block: func.vw(24, 1920);
+  
+  @media (max-width: 1440px) {
+    gap: func.vw(8, 1440);
+    margin-block: func.vw(24, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    gap: func.vw(8, 960);
+    margin-block: func.vw(24, 960);
+  }
+  
+  @media (max-width: 720px) {
+    width: 100%;
+    gap: func.vw(8, 720);
+    margin-block: func.vw(24, 720);
+  }
+  
+  @media (max-width: 540px) {
+    gap: func.vw(8, 540);
+    margin-block: func.vw(24, 540);
+  }
+  
+  @media (max-width: 420px) {
+    gap: func.vw(8, 420);
+    margin-block: func.vw(24, 420);
+  }
+}

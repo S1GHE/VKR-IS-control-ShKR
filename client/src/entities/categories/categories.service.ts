@@ -4,6 +4,9 @@ import {AxiosResponse} from "axios";
 export type TCategories = {
   ID: string;
   Name: string;
+  Description: string;
+  ImageUrl: string;
+
 }
 
 export type TGetCategoriesResponse = {

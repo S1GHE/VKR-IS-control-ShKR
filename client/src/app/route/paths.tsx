@@ -8,7 +8,7 @@ interface IPaths {
 
 export const ClientRoutesPublic:Array<IPaths> = [
   {to: "/", element: <Home/>},
-  {to: "/catalog", element: <Catalog/>}
+  {to: "/catalog/:id", element: <Catalog/>}
 ]
 
 export const AdminRoutes: Array<IPaths> = [

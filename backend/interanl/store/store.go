@@ -14,6 +14,7 @@ type Store struct {
 	log           *logrus.Logger
 	db            *sql.DB
 	CategoriesRep *CategoriesRepository
+	CoursesRep    *CourseRep
 }
 
 func New(config *config.Config, log *logrus.Logger) *Store {
@@ -60,4 +61,13 @@ func (s *Store) Categories() *CategoriesRepository {
 
 	s.CategoriesRep = &CategoriesRepository{store: s}
 	return s.CategoriesRep
+}
+
+func (s *Store) Courses() *CourseRep {
+	if s.CoursesRep != nil {
+		return s.CoursesRep
+	}
+
+	s.CoursesRep = &CourseRep{store: s}
+	return s.CoursesRep
 }

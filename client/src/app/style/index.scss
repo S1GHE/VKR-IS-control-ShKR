@@ -9,3 +9,11 @@ body{
   font-variation-settings:
           "slnt" 0;
 }
+
+.swiper-pagination-bullet {
+  background-color: #000 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--green) !important;
+}

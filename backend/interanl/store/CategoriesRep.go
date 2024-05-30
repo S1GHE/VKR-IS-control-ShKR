@@ -5,6 +5,7 @@ import (
 	"backend/pkg/model"
 	"database/sql"
 	"errors"
+	"time"
 )
 
 type CategoriesRepository struct {
@@ -20,7 +21,8 @@ func (c *CategoriesRepository) CreateNewCategories(cgm *model.Categories) (strin
 
 	if errors.Is(err, sql.ErrNoRows) {
 		_, err := c.store.db.Exec(
-			`INSERT INTO categories (id, name) VALUES (?, ?)`, cgm.ID, cgm.Name,
+			`INSERT INTO categories (id, name, description, image_url, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`,
+			cgm.ID, cgm.Name, cgm.Description, cgm.ImageUrl, cgm.CreatedAt, cgm.UpdatedAt,
 		)
 
 		if err != nil {
@@ -39,11 +41,12 @@ func (c *CategoriesRepository) CreateNewCategories(cgm *model.Categories) (strin
 
 func (c *CategoriesRepository) GetAllCategories() ([]model.Categories, error) {
 	const op = "internal.store.GetAllCategories"
-	rows, err := c.store.db.Query(`SELECT * FROM categories`)
+
+	rows, err := c.store.db.Query(`SELECT id, name, description, image_url, created_at, updated_at FROM categories`)
 	if err != nil {
 		c.store.log.Warning(helpers.LogSprintF(op, err))
+		return nil, err
 	}
-
 	defer func(rows *sql.Rows) {
 		var err = rows.Close()
 		if err != nil {
@@ -52,16 +55,34 @@ func (c *CategoriesRepository) GetAllCategories() ([]model.Categories, error) {
 	}(rows)
 
 	var categories []model.Categories
+
 	for rows.Next() {
 		var cgm model.Categories
-		if err := rows.Scan(&cgm.ID, &cgm.Name); err != nil {
+		var createdAt, updatedAt []uint8
+
+		if err := rows.Scan(&cgm.ID, &cgm.Name, &cgm.Description, &cgm.ImageUrl, &createdAt, &updatedAt); err != nil {
 			c.store.log.Warning(helpers.LogSprintF(op, err))
+			return nil, err
 		}
+
+		cgm.CreatedAt, err = time.Parse("2006-01-02 15:04:05", string(createdAt))
+		if err != nil {
+			c.store.log.Warning(helpers.LogSprintF(op, err))
+			return nil, err
+		}
+
+		cgm.UpdatedAt, err = time.Parse("2006-01-02 15:04:05", string(updatedAt))
+		if err != nil {
+			c.store.log.Warning(helpers.LogSprintF(op, err))
+			return nil, err
+		}
+
 		categories = append(categories, cgm)
 	}
 
 	if err = rows.Err(); err != nil {
 		c.store.log.Warning(helpers.LogSprintF(op, err))
+		return nil, err
 	}
 
 	return categories, nil

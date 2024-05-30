@@ -54,3 +54,28 @@
         font-size: func.vw(42, 420);
     }
 }
+
+.h_32{
+    font-weight: bold;
+    font-size: func.vw(32, 1920);
+
+    @media (max-width: 1440px) {
+        font-size: func.vw(32, 1440);
+    }
+
+    @media (max-width: 960px) {
+        font-size: func.vw(32, 960);
+    }
+
+    @media (max-width: 720px) {
+        font-size: func.vw(32, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(28, 540);
+    }
+
+    @media (max-width: 420px) {
+        font-size: func.vw(28, 420);
+    }
+}
