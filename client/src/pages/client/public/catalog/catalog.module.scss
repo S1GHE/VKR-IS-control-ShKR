@@ -37,9 +37,110 @@
 .header_list_courses{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
+  gap: func.vw(16, 1920);
+
+  @media (max-width: 1440px) {
+    gap: func.vw(16, 1440);
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: func.vw(16, 960);
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr 1fr;
+    gap: func.vw(16, 720);
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+    gap: func.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(16, 420);
+  }
 }
 
 .header_text{
   margin-block: func.vw(32, 1920);
+
+  @media (max-width: 1440px) {
+    margin-block: func.vw(32, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: func.vw(32, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: func.vw(32, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(32, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: func.vw(32, 420);
+  }
+}
+
+.not_found{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: func.vw(24, 1920);
+
+  &__text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: func.vw(16, 1920);
+    width: 30%;
+    
+    @media (max-width: 1440px) {
+      gap: func.vw(16, 1440);
+    }
+    
+    @media (max-width: 960px) {
+      gap: func.vw(16, 960);
+    }
+
+    @media (max-width: 720px) {
+      gap: func.vw(16, 720);
+      width: 100%;
+    }
+
+    @media (max-width: 540px) {
+      gap: func.vw(16, 540);
+    }
+    
+    @media (max-width: 420px) {
+      gap: func.vw(16, 420);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    gap: func.vw(24, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: func.vw(24, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: func.vw(24, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: func.vw(24, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(24, 420);
+  }
 }

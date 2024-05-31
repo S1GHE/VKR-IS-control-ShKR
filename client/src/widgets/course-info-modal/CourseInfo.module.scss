@@ -1,0 +1,77 @@
+@use "@src/shared/scss/func/func";
+
+.wrapper{
+  padding: func.vw(24, 1920) func.vw(32, 1920);
+  
+  @media (max-width: 1440px) {
+    padding: func.vw(24, 1440) func.vw(32, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding: func.vw(24, 960) func.vw(32, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding: func.vw(24, 720) func.vw(32, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: func.vw(24, 540) func.vw(32, 540);
+  }
+  
+  @media (max-width: 420px) {
+    padding: func.vw(24, 420) func.vw(32, 420);
+  }
+}
+
+.header_modal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button{
+    background-color: var(--green);
+    color: var(--white);
+    padding: func.vw(6, 1920);
+    border-radius: func.vw(5, 1920);
+    transition: 300ms;
+    
+    @media (hover: hover) {
+      &:hover{
+        background-color: var(--green-dark);
+      }
+    }
+
+    div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 1440px) {
+      padding: func.vw(6, 1440);
+      border-radius: func.vw(5, 1440);
+    }
+    
+    @media (max-width: 960px) {
+      padding: func.vw(6, 960);
+      border-radius: func.vw(5, 960);
+    }
+
+    @media (max-width: 720px) {
+      padding: func.vw(6, 720);
+      border-radius: func.vw(5, 720);
+    }
+
+    @media (max-width: 540px) {
+      padding: func.vw(6, 540);
+      border-radius: func.vw(5, 540);
+    }
+    
+    @media (max-width: 420px) {
+      padding: func.vw(6, 420);
+      border-radius: func.vw(5, 420);
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@use "@src/shared/scss/func/func";
+
+.base_link{
+  display: inline-block;
+  padding: func.vw(12, 1920);
+  border-radius: func.vw(10, 1920);
+  transition: 300ms;
+
+  &.green{
+    border: 2px solid var(--green);
+    background-color: var(--green);
+    color: var(--white);
+
+    @media (hover: hover) {
+      &:hover{
+        background-color: var(--green-dark);
+        border: 2px solid var(--green-dark);
+      }
+    }
+    
+    @media (hover: none) {
+      &:active{
+        background-color: var(--green-dark);
+        border: 2px solid var(--green-dark);
+      }
+    }
+
+    &:active{
+      background-color: var(--green-dark);
+      border: 2px solid var(--green-dark);
+    }
+  }
+
+  &.gray{
+    border: 2px solid var(--gray-light);
+    background-color: var(--gray-light);
+    color: var(--black);
+
+    @media (hover: hover) {
+      &:hover{
+        background-color: var(--gray);
+        border: 2px solid var(--gray);
+      }
+    }
+
+    @media (hover: none) {
+      &:active{
+        background-color: var(--gray);
+        border: 2px solid var(--gray);
+      }
+    }
+
+    &:active{
+      background-color: var(--gray);
+      border: 2px solid var(--gray);
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    padding: func.vw(12, 1440);
+    border-radius: func.vw(10, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    padding: func.vw(12, 960);
+    border-radius: func.vw(10, 960);
+  }
+  
+  @media (max-width: 720px) {
+    padding: func.vw(12, 720);
+    border-radius: func.vw(10, 720);
+  }
+  
+  @media (max-width: 540px) {
+    padding: func.vw(12, 540);
+    border-radius: func.vw(10, 540);
+  }
+  
+  @media (max-width: 420px) {
+    padding: func.vw(12, 420);
+    border-radius: func.vw(10, 420);
+  }
+}

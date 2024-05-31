@@ -30,6 +30,36 @@
     }
 }
 
+.p_14{
+    font-weight: normal;
+    font-size: func.vw(14, 1920);
+
+    &_bold{
+        @extend .p_14;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 1440px) {
+        font-size: func.vw(14, 1440);
+    }
+    
+    @media (max-width: 960px) {
+        font-size: func.vw(14, 960);
+    }
+    
+    @media (max-width: 720px) {
+        font-size: func.vw(14, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(14, 540);
+    }
+    
+    @media (max-width: 420px) {
+        font-size: func.vw(14, 420);
+    }
+}
+
 .p_16{
     font-weight: normal;
     font-size: func.vw(16, 1920);
@@ -142,6 +172,11 @@
 
 .h_24{
     font-size: func.vw(24, 1920);
+
+    &_bold{
+        @extend .h_24;
+        font-weight: bold;
+    }
 
     @media (max-width: 1440px) {
         font-size: func.vw(24, 1440);

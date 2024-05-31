@@ -134,6 +134,53 @@
   }
 }
 
+.load_container{
+  min-height: 500px;
+  border: 2px solid var(--gray-light);
+  border-radius: func.vw(10, 1920);
+  gap: func.vw(8, 1920);
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p{
+    color: var(--black)
+  }
+  
+  @media (max-width: 1440px) {
+    border-radius: func.vw(10, 1440);
+    gap: func.vw(8, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    border-radius: func.vw(10, 960);
+    gap: func.vw(8, 960);
+  }
+  
+  @media (max-width: 720px) {
+    border-radius: func.vw(10, 720);
+    gap: func.vw(8, 720);
+    width: 100%;
+  }
+
+  @media (max-width: 540px) {
+    border-radius: func.vw(10, 540);
+    gap: func.vw(8, 540);
+    width: 100%;
+  }
+  
+  @media (max-width: 420px) {
+    border-radius: func.vw(10, 420);
+    gap: func.vw(8, 420);
+    width: 100%;
+  }
+
+}
+
 .slider {
   flex: 1;
   width: 60%;
