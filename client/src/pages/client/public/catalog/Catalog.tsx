@@ -17,6 +17,10 @@ export const Catalog = () => {
   const [activeCategories, setActiveCategories] = useState<TCategories | null>(null);
 
   useEffect(() => {
+    GetCategories().finally()
+  }, [])
+
+  useEffect(() => {
     if (id) {
       Courses.getCourses(id)
         .then((res) => {
@@ -31,13 +35,11 @@ export const Catalog = () => {
   }, [id])
 
   useEffect(() => {
-    GetCategories().finally()
-
     if (categories.length > 0 && id) {
       const category = categories.find((el) => el.ID === id);
       setActiveCategories(category || null);
     }
-  }, [categories, id])
+  }, [categories, id]);
 
   return (
     <div>
