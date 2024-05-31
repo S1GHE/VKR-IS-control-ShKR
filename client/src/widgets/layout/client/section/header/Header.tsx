@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import HeaderStyle from '@src/widgets/layout/client/section/header/Header.module.scss'
 import Logo from "@src/shared/assets/logo/mainLogo.svg"
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
@@ -8,21 +8,11 @@ import CaretDown from "@src/shared/assets/ui/caret.svg"
 import {BigBtn} from "@src/shared/ui/btn/big-btn/BigBtn";
 import BurgerImage from "@src/shared/assets/header/burger.svg"
 import { Link } from 'react-router-dom';
+import {BottomModal} from "@src/features/modals";
 
 export const Header = () => {
   const globalResize = useResize()
   const [isBurgerOpen, setIsBurgerOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && isBurgerOpen && (!event.composedPath().includes(menuRef.current))) {
-        setIsBurgerOpen(false)
-      }
-    }
-    document.body.addEventListener('click', handleClickOutside)
-    return () => document.body.removeEventListener('click', handleClickOutside)
-  }, [isBurgerOpen])
 
   return (
     <header className={HeaderStyle.container_static}>
@@ -57,8 +47,8 @@ export const Header = () => {
           </div>
         }
       </div>
-      <div className={useClass([HeaderStyle.burgerMenu, isBurgerOpen && !globalResize.isScreenMd ? HeaderStyle["open"] : HeaderStyle["closed"]])}>
-        <div ref={menuRef} className={useClass([HeaderStyle.burgerMenuContent, isBurgerOpen && !globalResize.isScreenMd ? HeaderStyle["open"] : HeaderStyle["closed"]])}>
+      {!globalResize.isScreenMd &&
+        <BottomModal isOpen={isBurgerOpen} setIsOpen={setIsBurgerOpen}>
           <div className={HeaderStyle.burgerCatalog}>
             <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
             <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
@@ -68,8 +58,8 @@ export const Header = () => {
             <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Компаниям</BigBtn>
             <BigBtn to={'/'} state={"black"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Войти</BigBtn>
           </div>
-        </div>
-      </div>
+        </BottomModal>
+      }
     </header>
   );
 };

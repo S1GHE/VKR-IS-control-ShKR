@@ -1,0 +1,93 @@
+
+
+.modalContainer {
+	position: fixed;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, .8);
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	display: none;
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: block;
+		animation-name: background-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: background-disappear;
+	}
+}
+
+@keyframes background-appear {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
+@keyframes background-disappear {
+	0% {
+		display: block;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.modal {
+	position: fixed;
+	background-color: var(--white);
+	right: 0;
+	top: 0;
+	width: 860px;
+	height: 100%;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+
+	@media (max-width: 960px) {
+		width: 100%;
+	}
+
+	&.open {
+		display: block;
+		animation-name: modal-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: modal-disappear;
+	}
+}
+
+
+
+@keyframes modal-appear {
+	0% {
+		display: none;
+		right: -100%;
+	}
+	100% {
+		display: block;
+	}
+}
+
+@keyframes modal-disappear {
+	0% {
+		display: block;
+	}
+	100% {
+		right: -100%;
+		display: none;
+	}
+}

@@ -1,16 +1,17 @@
 import cls from "@src/features/courses-card/courseCard.module.scss";
 import { TextModule } from "@src/shared/scss";
 import { TCourses } from "@src/entities/courses";
-import { FC, Key, useEffect, useState } from "react";
+import {Dispatch, FC, Key, SetStateAction, useEffect, useState} from "react";
 import axios from "axios";
 
 export interface ICourseCard {
     NameCategories: string;
     CardInfo: TCourses;
     key: Key;
+    onClick: Dispatch<SetStateAction<TCourses>>
 }
 
-export const CourseCard: FC<ICourseCard> = ({ CardInfo, key, NameCategories }) => {
+export const CourseCard: FC<ICourseCard> = ({ CardInfo, key, NameCategories, onClick }) => {
   const [svgContent, setSvgContent] = useState<string>("");
   
   useEffect(() => {
@@ -32,7 +33,7 @@ export const CourseCard: FC<ICourseCard> = ({ CardInfo, key, NameCategories }) =
   }, [CardInfo]);
 
   return (
-    <div className={cls.card_continer} key={key}>
+    <div className={cls.card_continer} key={key} onClick={() => onClick(CardInfo)}>
         <div className={cls.card_wrapper}>
             <div className={cls.card_categories}>
                 <p className={TextModule.p_12}>• {NameCategories}</p>

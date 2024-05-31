@@ -9,11 +9,13 @@ import { Courses, TCourses } from "@src/entities/courses";
 import { CourseCard } from "@src/features/courses-card";
 import { TCategories } from "@src/entities/categories";
 import { useClass } from "@src/shared/hooks";
+import {CourseInfo} from "@src/widgets/course-info-modal";
 
 export const Catalog = () => {
   const {id} = useParams();
   const {categories} = useUnit($allData);
   const [courses, setCourses] = useState<Array<TCourses>>([])
+  const [selectedCourse, setSelectedCourse] = useState<TCourses | null>(null)
   const [activeCategories, setActiveCategories] = useState<TCategories | null>(null);
 
   useEffect(() => {
@@ -43,6 +45,7 @@ export const Catalog = () => {
 
   return (
     <div>
+      <CourseInfo selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse}/>
       <h2 className={useClass([TextModule.h_32, cls.header_text])}>
         {activeCategories ?  `Курсы "${activeCategories.Name}"` : "Загрузка..."}
       </h2>
@@ -56,7 +59,7 @@ export const Catalog = () => {
         {courses.length > 0 ? (
           <div className={cls.header_list_courses}>
             {courses.map((el) => (
-              <CourseCard key={el.ID} CardInfo={el} NameCategories={activeCategories.Name}/> 
+              <CourseCard onClick={(info: TCourses) => setSelectedCourse(info)} key={el.ID} CardInfo={el} NameCategories={activeCategories.Name}/>
             ))}
           </div>
         ) : (
