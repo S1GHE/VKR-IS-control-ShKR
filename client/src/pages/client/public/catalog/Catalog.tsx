@@ -32,14 +32,12 @@ export const Catalog = () => {
 
   useEffect(() => {
     GetCategories().finally()
-  }, [categories])
 
-  useEffect(() => {
     if (categories.length > 0 && id) {
       const category = categories.find((el) => el.ID === id);
       setActiveCategories(category || null);
     }
-  }, [categories, id]);
+  }, [categories, id])
 
   return (
     <div>

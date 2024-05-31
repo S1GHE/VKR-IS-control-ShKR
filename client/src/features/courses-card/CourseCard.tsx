@@ -22,11 +22,7 @@ export const CourseCard: FC<ICourseCard> = ({ CardInfo, key, NameCategories }) =
                 }
             });
 
-            if (res.status === 200) {
-                setSvgContent(res.data);
-            } else {
-                console.error('Error fetching SVG: Non-200 status code', res.status);
-            }
+            setSvgContent(res.data);
         } catch (err) {
             console.error('Error fetching SVG:', err);
         }
@@ -44,11 +40,13 @@ export const CourseCard: FC<ICourseCard> = ({ CardInfo, key, NameCategories }) =
             </div>
 
             <h4 className={TextModule.h_24}>{CardInfo.CourseName}</h4>
-
-            <div
-                dangerouslySetInnerHTML={{ __html: svgContent }}
-                style={{ display: "inline-block" }}
-            />
+            
+            <div className={cls.card_svg_container}>
+                <div
+                    dangerouslySetInnerHTML={{ __html: svgContent }}
+                    style={{ display: "block", width: "100%", height: "auto", maxWidth: "400px" }}
+                />
+            </div>
             
             <div className={cls.card_price}>
                 <p className={TextModule.p_18}>Цена курса:</p>
