@@ -1,5 +1,5 @@
-import { TCourses, TGetCoursesResponse, Courses } from "./courses.service";
+import { TCourses, TGetCoursesResponse, Courses , TGetCoursesDescResponse, TCorsesDesc} from "./courses.service";
 
 export{
-    TCourses, TGetCoursesResponse, Courses
+    TCourses, TGetCoursesResponse, Courses, TCorsesDesc, TGetCoursesDescResponse
 }

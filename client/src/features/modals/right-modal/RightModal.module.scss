@@ -47,13 +47,14 @@
 
 .modal {
 	position: fixed;
-	background-color: var(--white);
+	background-color: var(--gray-light);
 	right: 0;
 	top: 0;
 	width: 860px;
 	height: 100%;
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
+	overflow-y: scroll;
 
 	@media (max-width: 960px) {
 		width: 100%;
