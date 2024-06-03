@@ -1,40 +1,40 @@
 @use "@src/shared/scss/func/func";
 
-.header_list{
+.header_list {
   width: 60%;
   display: flex;
   flex-wrap: wrap;
   gap: func.vw(8, 1920);
   margin-block: func.vw(24, 1920);
-  
+
   @media (max-width: 1440px) {
     gap: func.vw(8, 1440);
     margin-block: func.vw(24, 1440);
   }
-  
+
   @media (max-width: 960px) {
     gap: func.vw(8, 960);
     margin-block: func.vw(24, 960);
   }
-  
+
   @media (max-width: 720px) {
     width: 100%;
     gap: func.vw(8, 720);
     margin-block: func.vw(24, 720);
   }
-  
+
   @media (max-width: 540px) {
     gap: func.vw(8, 540);
     margin-block: func.vw(24, 540);
   }
-  
+
   @media (max-width: 420px) {
     gap: func.vw(8, 420);
     margin-block: func.vw(24, 420);
   }
 }
 
-.header_list_courses{
+.header_list_courses {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: func.vw(16, 1920);
@@ -63,7 +63,7 @@
   }
 }
 
-.header_text{
+.header_text {
   margin-block: func.vw(32, 1920);
 
   @media (max-width: 1440px) {
@@ -87,7 +87,36 @@
   }
 }
 
-.not_found{
+.cat_container {
+  margin-block: func.vw(32, 720);
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(32, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: func.vw(32, 420);
+  }
+}
+
+.categories_modal {
+  display: flex;
+  flex-direction: column;
+  gap: func.vw(8, 720);
+  padding: func.vw(24, 720);
+
+  @media (max-width: 540px) {
+    gap: func.vw(8, 540);
+    padding: func.vw(24, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(8, 420);
+    padding: func.vw(24, 420);
+  }
+}
+
+.not_found {
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -95,17 +124,17 @@
   justify-content: center;
   gap: func.vw(24, 1920);
 
-  &__text{
+  &__text {
     display: flex;
     flex-direction: column;
     text-align: center;
     gap: func.vw(16, 1920);
     width: 30%;
-    
+
     @media (max-width: 1440px) {
       gap: func.vw(16, 1440);
     }
-    
+
     @media (max-width: 960px) {
       gap: func.vw(16, 960);
     }
@@ -118,7 +147,7 @@
     @media (max-width: 540px) {
       gap: func.vw(16, 540);
     }
-    
+
     @media (max-width: 420px) {
       gap: func.vw(16, 420);
     }

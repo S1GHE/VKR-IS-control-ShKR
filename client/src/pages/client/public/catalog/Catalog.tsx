@@ -1,25 +1,29 @@
-import { useParams } from "react-router-dom";
-import { LinkBase, LinkCategories } from "@src/shared/ui/link";
-import { TextModule } from "@src/shared/scss";
+import {useParams} from "react-router-dom";
+import {LinkBase, LinkCategories} from "@src/shared/ui/link";
+import {TextModule} from "@src/shared/scss";
 import cls from "@src/pages/client/public/catalog/catalog.module.scss";
-import { useUnit } from "effector-react";
-import { $allData, GetCategories } from "@src/app/manager";
-import { useEffect, useState } from "react";
-import { Courses, TCourses } from "@src/entities/courses";
-import { CourseCard } from "@src/features/courses-card";
-import { TCategories } from "@src/entities/categories";
-import { useClass } from "@src/shared/hooks";
-import { CourseInfo } from "@src/widgets/course-info-modal";
+import {useUnit} from "effector-react";
+import {$allData, GetCategories} from "@src/app/manager";
+import {useEffect, useState} from "react";
+import {Courses, TCourses} from "@src/entities/courses";
+import {CourseCard} from "@src/features/courses-card";
+import {TCategories} from "@src/entities/categories";
+import {useClass, useResize} from "@src/shared/hooks";
+import {CourseInfo} from "@src/widgets/course-info-modal";
 import {Loader} from "@src/features/loader";
 import EmptyFallBack from "@src/shared/assets/icons/emptyFallback_image.svg";
+import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
+import {BottomModal} from "@src/features/modals";
 
 export const Catalog = () => {
-  const { id } = useParams();
-  const { categories } = useUnit($allData);
+  const {id} = useParams();
+  const {categories} = useUnit($allData);
   const [courses, setCourses] = useState<Array<TCourses>>([]);
   const [selectedCourse, setSelectedCourse] = useState<TCourses | null>(null);
   const [activeCategories, setActiveCategories] = useState<TCategories | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [bottomOpen, setBottomOpen] = useState<boolean>(false);
+  const globalResize = useResize()
 
 
   useEffect(() => {
@@ -51,17 +55,34 @@ export const Catalog = () => {
 
   return (
     <>
-      <CourseInfo selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} />
+      <CourseInfo selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse}/>
       <h2 className={useClass([TextModule.h_32, cls.header_text])}>
         {activeCategories ? `Курсы «${activeCategories.Name}»` : "Загрузка..."}
       </h2>
-      <div className={cls.header_list}>
-        {categories.map((el) => (
-          <LinkCategories to={`/catalog/${el.ID}`} key={el.ID}>
-            <p className={TextModule.p_16}>{el.Name}</p>
-          </LinkCategories>
-        ))}
-      </div>
+
+      {
+        globalResize.isScreenMd ? <div className={cls.header_list}>
+            {categories.map((el) => (
+              <LinkCategories to={`/catalog/${el.ID}`} key={el.ID}>
+                <p className={TextModule.p_16}>{el.Name}</p>
+              </LinkCategories>
+            ))}
+          </div> :
+          <>
+            <div className={cls.cat_container}>
+              <MainBtn state={"black"} onClick={() => setBottomOpen(!bottomOpen)}>Категории</MainBtn>
+            </div>
+            <BottomModal isOpen={bottomOpen} setIsOpen={setBottomOpen}>
+              <div className={cls.categories_modal}>
+                {categories.map((el) => (
+                  <MainBtn state={"gray"} to={`/catalog/${el.ID}`} onClick={() => setBottomOpen(!bottomOpen)} key={el.ID}>
+                    <p className={TextModule.p_16}>{el.Name}</p>
+                  </MainBtn>
+                ))}
+              </div>
+            </BottomModal>
+          </>
+      }
       {isLoading ? (
         <div className={cls.not_found}><Loader/> <p className={TextModule.p_14}>Загрузка</p></div>
       ) : courses.length > 0 ? (
@@ -71,7 +92,9 @@ export const Catalog = () => {
               key={el.ID}
               CardInfo={el}
               NameCategories={activeCategories.Name}
-              onClick={() => { setSelectedCourse(el); }}
+              onClick={() => {
+                setSelectedCourse(el);
+              }}
             />
           ))}
         </div>

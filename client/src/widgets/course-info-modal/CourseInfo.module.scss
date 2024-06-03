@@ -1,5 +1,10 @@
 @use "@src/shared/scss/func/func";
 
+
+.container{
+  position: relative;
+}
+
 .wrapper{
   display: flex;
   flex-direction: column;
@@ -84,6 +89,7 @@
   }
 }
 
+
 .description_course{
   display: flex;
   flex-direction: column;
@@ -92,6 +98,25 @@
   padding: func.vw(16, 1920);
   background-color: var(--black);
   color: white;
+
+  &__payment{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: func.vw(8, 1920);
+    border-radius: func.vw(5, 1920);
+    padding: func.vw(16, 1920);
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+
+    &__btn{
+      width: 30%;
+    }
+    &__btn_pay{
+      width: 70%;
+    }
+  }
 
   &__optional{
     display: flex;
@@ -117,15 +142,11 @@
     &__name{
       gap: func.vw(8, 1440);
     }
-  }
 
-  @media (max-width: 960px) {
-    gap: func.vw(14, 960);
-    border-radius: func.vw(5, 960);
-    padding: func.vw(16, 960);
-
-    &__name{
-      gap: func.vw(8, 960);
+    &__payment{
+      gap: func.vw(8, 1440);
+      border-radius: func.vw(5, 1440);
+      padding: func.vw(16, 1440);
     }
   }
 
@@ -136,6 +157,12 @@
 
     &__name{
       gap: func.vw(8, 960);
+    }
+
+    &__payment{
+      gap: func.vw(8, 960);
+      border-radius: func.vw(5, 960);
+      padding: func.vw(16, 960);
     }
   }
 
@@ -147,6 +174,12 @@
     &__name{
       gap: func.vw(8, 720);
     }
+
+    &__payment{
+      gap: func.vw(8, 720);
+      border-radius: func.vw(5, 720);
+      padding: func.vw(16, 720);
+    }
   }
 
   @media (max-width: 540px) {
@@ -157,6 +190,20 @@
     &__name{
       gap: func.vw(8, 540);
     }
+
+    &__payment{
+      gap: func.vw(8, 540);
+      border-radius: func.vw(5, 540);
+      padding: func.vw(16, 540);
+
+      &__btn{
+        width: 40%;
+      }
+
+      &__btn_pay{
+        width: 60%;
+      }
+    }
   }
 
   @media (max-width: 420px) {
@@ -166,6 +213,12 @@
 
     &__name{
       gap: func.vw(8, 420);
+    }
+
+    &__payment{
+      gap: func.vw(8, 420);
+      border-radius: func.vw(5, 420);
+      padding: func.vw(16, 420);
     }
   }
 }
