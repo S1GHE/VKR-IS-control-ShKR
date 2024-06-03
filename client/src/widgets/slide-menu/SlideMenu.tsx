@@ -17,12 +17,12 @@ export const SlideMenu = () => {
 
   return (
     <header className={cls.header}>
-      <Link to={"/"}>
+      <Link to={"/"} className={cls.link_home}>
         <Logo/>
       </Link>
 
       <div className={cls.link_container}>
-        <MainBtn to={"/admin/home"}>
+        <MainBtn state={"gray"} to={"/admin/home"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                className="bi bi-speedometer2" viewBox="0 0 16 16">
             <path
@@ -33,7 +33,7 @@ export const SlideMenu = () => {
 
           <p className={TextModule.p_14}>Дашборды</p>
         </MainBtn>
-        <MainBtn to={"/admin/application"}>
+        <MainBtn state={"gray"} to={"/admin/application"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                className="bi bi-clipboard2" viewBox="0 0 16 16">
             <path
@@ -44,7 +44,7 @@ export const SlideMenu = () => {
           <p className={TextModule.p_14}>Заявки на курсы</p>
         </MainBtn>
 
-        <MainBtn to={"/admin/feed"}>
+        <MainBtn state={"gray"} to={"/admin/feed"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                className="bi bi-person-raised-hand" viewBox="0 0 16 16">
             <path
@@ -54,7 +54,7 @@ export const SlideMenu = () => {
           <p className={TextModule.p_14}>Обратная связь</p>
         </MainBtn>
 
-        <MainBtn to={"/admin/settings"}>
+        <MainBtn state={"gray"} to={"/admin/settings"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-gear"
                viewBox="0 0 16 16">
             <path
@@ -68,7 +68,7 @@ export const SlideMenu = () => {
           </p>
         </MainBtn>
 
-        <MainBtn to={"/admin/analytics"}>
+        <MainBtn state={"gray"} to={"/admin/analytics"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                className="bi bi-graph-up-arrow" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
