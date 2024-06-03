@@ -51,7 +51,7 @@ export const Consultation = () => {
   ]
 
   return (
-    <div className={cls.container}>
+    <div id="consultation" className={cls.container}>
       <div className={cls.flexContainer}>
         <div className={cls.inputs}>
           <div className={useClass([TextModule.h_32, cls.consultationHeader])}>

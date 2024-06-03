@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: func.vw(1412, 1920);
-	height: func.vw(50, 1920);
+	height: func.vw(66, 1920);
 	background-color: white;
 
 	&_static {
@@ -20,46 +20,46 @@
 		left: 50%;
 		top: 0;
 		transform: translateX(-50%);
-		padding-inline: func.vw(6, 1920);
-		padding-block: func.vw(8, 1920);
+		padding-inline: func.vw(20, 1920);
+		padding-block: func.vw(16, 1920);
 
 		@media (max-width: 1440px) {
-			padding-inline: func.vw(6, 1440);
-			padding-block: func.vw(8, 1440);
+			padding-inline: func.vw(20, 1440);
+			padding-block: func.vw(16, 1440);
 		}
 		@media (max-width: 960px) {
-			padding-inline: func.vw(6, 960);
-			padding-block: func.vw(8, 960);
+			padding-inline: func.vw(20, 960);
+			padding-block: func.vw(16, 960);
 		}
 		@media (max-width: 720px) {
-			padding-inline: func.vw(6, 720);
-			padding-block: func.vw(8, 720);
+			padding-inline: func.vw(20, 720);
+			padding-block: func.vw(16, 720);
 		}
 		@media (max-width: 540px) {
-			padding-inline: func.vw(6, 540);
-			padding-block: func.vw(8, 540);
+			padding-inline: func.vw(20, 540);
+			padding-block: func.vw(16, 540);
 		}
 		@media (max-width: 420px) {
-			padding-inline: func.vw(6, 420);
-			padding-block: func.vw(8, 420);
+			padding-inline: func.vw(20, 420);
+			padding-block: func.vw(16, 420);
 		}
 	}
 
 	@media (max-width: 1440px) {
-		height: func.vw(50, 1440);
+		height: func.vw(66, 1440);
 		width: 100%;
 	}
 	@media (max-width: 960px) {
-		height: func.vw(50, 960);
+		height: func.vw(66, 960);
 	}
 	@media (max-width: 720px) {
-		height: func.vw(50, 720);
+		height: func.vw(66, 720);
 	}
 	@media (max-width: 540px) {
-		height: func.vw(50, 540);
+		height: func.vw(66, 540);
 	}
 	@media (max-width: 420px) {
-		height: func.vw(50, 420);
+		height: func.vw(66, 420);
 	}
 }
 
@@ -67,30 +67,24 @@
 	position: relative;
 	height: func.vw(30, 1920);
 	width: func.vw(179, 1920);
-	margin-left: func.vw(17, 1920);
 
 	@media (max-width: 1440px) {
-		margin-left: func.vw(17, 1440);
 		height: func.vw(30, 1440);
 		width: func.vw(179, 1440);
 	}
 	@media (max-width: 960px) {
-		margin-left: func.vw(17, 960);
 		height: func.vw(30, 960);
 		width: func.vw(179, 960);
 	}
 	@media (max-width: 720px) {
-		margin-left: func.vw(17, 720);
 		height: func.vw(30, 720);
 		width: func.vw(179, 720);
 	}
 	@media (max-width: 540px) {
-		margin-left: func.vw(17, 540);
 		height: func.vw(30, 540);
 		width: func.vw(179, 540);
 	}
 	@media (max-width: 420px) {
-		margin-left: func.vw(17, 420);
 		height: func.vw(30, 420);
 		width: func.vw(179, 420);
 	}

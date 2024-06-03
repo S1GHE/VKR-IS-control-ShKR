@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import HeaderStyle from '@src/widgets/layout/client/section/header/Header.module.scss'
 import Logo from "@src/shared/assets/icons/logo/mainLogo.svg"
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
@@ -10,11 +10,19 @@ import BurgerImage from "@src/shared/assets/icons/header/burger.svg"
 import { Link } from 'react-router-dom';
 import {BottomModal} from "@src/features/modals";
 import {GlobalContext} from "@src/app/provider";
+import {$allData, GetCategories} from "@src/app/manager";
+import {useUnit} from "effector-react";
 
 export const Header = () => {
   const {globalResize} = useContext(GlobalContext)!;
-
+  const {categories} = useUnit($allData);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false)
+
+  useEffect(() => {
+    if (categories.length != 0) {
+      GetCategories().finally();
+    }
+  }, []);
 
   return (
     <header className={HeaderStyle.container_static}>
@@ -24,7 +32,6 @@ export const Header = () => {
         </Link>
         {globalResize.isScreenMd ?
           <div className={useClass([TextModule.p_16, HeaderStyle.navigationButtons])}>
-            <MainBtn to={'/'} state={"gray"}>Компаниям</MainBtn>
             <MainBtn state={"gray"} className={HeaderStyle.dropButton}>
               <div className={HeaderStyle.dropButtonContent}>
                 Все курсы
@@ -34,10 +41,9 @@ export const Header = () => {
               </div>
               <div className={HeaderStyle.dropdownWrapper}>
                 <div className={HeaderStyle.dropdownContainer}>
-                  <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
-                  <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
-                  <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
-                  <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
+                  {categories.map((category) =>
+                    <BigBtn to={`/catalog/${category.ID}`} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>{category.Name}</BigBtn>
+                  )}
                 </div>
               </div>
             </MainBtn>
@@ -52,12 +58,11 @@ export const Header = () => {
       {!globalResize.isScreenMd &&
         <BottomModal isOpen={isBurgerOpen} setIsOpen={setIsBurgerOpen}>
           <div className={HeaderStyle.burgerCatalog}>
-            <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
-            <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
-            <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Программирование</BigBtn>
+            {categories.map((category) =>
+              <BigBtn to={`/catalog/${category.ID}`} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>{category.Name}</BigBtn>
+            )}
           </div>
           <div className={HeaderStyle.burgerAdditional}>
-            <BigBtn to={'/'} state={"gray"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Компаниям</BigBtn>
             <BigBtn to={'/'} state={"black"} className={useClass([TextModule.p_16, HeaderStyle.bigButton])}>Войти</BigBtn>
           </div>
         </BottomModal>
