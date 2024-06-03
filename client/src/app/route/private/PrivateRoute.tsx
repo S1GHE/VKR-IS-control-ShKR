@@ -1,10 +1,10 @@
 import {useUnit} from "effector-react/effector-react.mjs";
 import {$token} from "@src/app/manager/effect/adminAuth.effect";
-import {MainAdmin} from "@src/pages/client";
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import {AdminLayout} from "@src/widgets/layout";
 
 export const PrivateRoute = () => {
   const token = useUnit($token)
 
-  return token ? <MainAdmin/>: <Navigate to={"/admin"}/>
+  return token ? <AdminLayout><Outlet/></AdminLayout>: <Navigate to={"/admin"}/>
 };

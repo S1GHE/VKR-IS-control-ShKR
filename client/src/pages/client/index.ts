@@ -39,7 +39,7 @@ export const ApplicationChunk = lazy(
 )
 
 export const FeedBackChunk = lazy(
-  () => import("@src/pages/admin/private/feedback/Feedback").then(
+  () => import("@src/pages/admin/private/feed/Feedback").then(
     m => ({default: m.Feedback})
   )
 )

@@ -44,7 +44,7 @@ export const SlideMenu = () => {
           <p className={TextModule.p_14}>Заявки на курсы</p>
         </MainBtn>
 
-        <MainBtn to={"/admin/feedback"}>
+        <MainBtn to={"/admin/feed"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                className="bi bi-person-raised-hand" viewBox="0 0 16 16">
             <path

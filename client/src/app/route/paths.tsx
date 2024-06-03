@@ -27,7 +27,7 @@ export const AdminRoutes: Array<IPaths> = [
   // Заявки на курсы
   {to: "/admin/application", element: <ApplicationChunk/>},
   // Обратная свзь
-  {to: "/admin/feedback", element: <FeedBackChunk/>},
+  {to: "/admin/feed", element: <FeedBackChunk/>},
   // Настйроки курсов
   {to: "/admin/settings", element: <SettingChunk/>}
 ]
