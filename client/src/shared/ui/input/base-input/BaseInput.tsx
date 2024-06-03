@@ -7,7 +7,6 @@ import {TextModule} from "@src/shared/scss";
 export interface IBaseInput extends InputType{
     tag?: string,
     className?: string | undefined
-    width?: string;
     isValid?: boolean;
     isDirty?: boolean;
     onClick?: MouseEventHandler<HTMLInputElement>
@@ -17,7 +16,6 @@ export interface IBaseInput extends InputType{
 export const BaseInput:FC<IBaseInput> = (props) => {
     const {
         tag,
-        width,
         type,
         autoComplete,
         placeholder,

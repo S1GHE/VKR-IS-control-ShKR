@@ -1,6 +1,7 @@
 @use "@src/shared/scss/func/func";
 
 .base_input{
+  width: 100%;
   -webkit-appearance: none;
   box-sizing: border-box;
   border: 1px solid var(--gray);

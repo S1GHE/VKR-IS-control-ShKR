@@ -54,7 +54,7 @@ export const Consultation = () => {
     <div className={cls.container}>
       <div className={cls.flexContainer}>
         <div className={cls.inputs}>
-          <div className={useClass([TextModule.h_40, cls.consultationHeader])}>
+          <div className={useClass([TextModule.h_32, cls.consultationHeader])}>
             Все еще не с нами?
             Запишитесь на консультацию!
           </div>
@@ -76,15 +76,17 @@ export const Consultation = () => {
           }
           <div className={useClass([cls.agreement, TextModule.p_12_white])}>
             <div><Checkbox variety={"blue"} checkValue={isAgree} setCheckValue={setIsAgree}/></div>
-            <div>
-               Lorem ipsum dolor sit amet, consectetur adipisicing.<a className={cls.link}>Alias amet at cum</a> Lorem ipsum dolor sit.
-            </div>
+            <p className={TextModule.p_14}>
+              Даю свое согласие на обработку указаных мной персональных данных.
+              <a className={cls.link}>
+                Политики конфиденциальности
+              </a> в целях обработки заявки и обратной связи по ней.
+            </p>
           </div>
           <BigBtn state={"white"}>
             Спросить
           </BigBtn>
         </div>
-
       </div>
     </div>
   );
