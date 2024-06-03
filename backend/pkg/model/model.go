@@ -29,3 +29,9 @@ type CoursesDesc struct {
 	Duration string
 	CourseID string
 }
+
+type Admin struct {
+	ID       string
+	UserName string
+	Password string
+}

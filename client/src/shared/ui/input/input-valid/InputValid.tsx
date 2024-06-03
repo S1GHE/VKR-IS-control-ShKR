@@ -25,7 +25,7 @@ export const InputValid:FC<IInputValid> = (props) => {
 
     return (
         <div className={classes.container}>
-            <label className={TextModule.p_12_white}>
+            <label className={TextModule.p_12}>
                 {label}
             </label>
 
@@ -43,9 +43,9 @@ export const InputValid:FC<IInputValid> = (props) => {
             >
                 {
                     (!isValid && isDirty) ? <div className={useClass([classes.msg, classes['error']])}>
-                        <ErrorIconMsg/><p className={TextModule.p_16}>{errText}</p>
+                        <ErrorIconMsg/><p className={TextModule.p_14}>{errText}</p>
                     </div> : <div className={useClass([classes.msg, classes["success"]])}>
-                        <SuccessIconMsg/><p className={TextModule.p_16}>{successText}</p>
+                        <SuccessIconMsg/><p className={TextModule.p_14}>{successText}</p>
                     </div>
                 }
             </CSSTransition>

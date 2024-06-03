@@ -1,15 +1,14 @@
-import {Outlet} from "react-router"
+import {FC, ReactNode} from "react";
+import {SlideMenu} from "@src/widgets/slide-menu/SlideMenu";
+import cls from "@src/widgets/layout/admin/AdminLayout.module.scss";
 
-export const AdminLayout = () => {
+export const AdminLayout:FC<{children: ReactNode}> = ({children}) => {
   return (
-    <>
-      <header>
-        Admin
-      </header>
-
-      <main>
-        <Outlet/>
-      </main>
-    </>
+    <main className={cls.main}>
+      <SlideMenu/>
+      <section className={cls.outlet}>
+        {children}
+      </section>
+    </main>
   );
 };

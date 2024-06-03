@@ -5,7 +5,7 @@ import cls from "@src/widgets/course-info-modal/CourseInfo.module.scss";
 import {TextModule} from "@src/shared/scss";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {LinkBase} from "@src/shared/ui/link";
-import {Main} from "@src/pages/admin/main/Main";
+import {Main} from "@src/pages/admin/private/main/Main";
 
 interface CourseInfoProps {
   selectedCourse: TCourses,

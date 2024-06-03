@@ -5,6 +5,7 @@ import (
 	"backend/interanl/controllers/middleware"
 	"backend/interanl/store"
 	"backend/pkg/helpers"
+	"backend/pkg/token"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
@@ -36,17 +37,23 @@ func (h *Handlers) New() *gin.Engine {
 	{
 		var categories = api.Group("/categories")
 		{
-			categories.POST("/", h.PostCreateCategories)
+			categories.POST("/", h.AdminAuthenticateJWT(), h.PostCreateCategories)
 			categories.GET("/", h.GetAllCategories)
 		}
 
 		var courses = api.Group("/courses")
 		{
-			courses.POST("/", h.PostCreateCourses)
+			courses.POST("/", h.AdminAuthenticateJWT(), h.PostCreateCourses)
 			courses.GET("/:id", h.GetAllCourses)
 
-			courses.POST("/desc", h.PostCreateCoursesDesc)
+			courses.POST("/desc", h.AdminAuthenticateJWT(), h.PostCreateCoursesDesc)
 			courses.GET("/desc/:id", h.GetAllCoursesDesc)
+		}
+
+		var admin = api.Group("/admin")
+		{
+			admin.POST("/register", h.AdminAuthenticateJWT(), h.RegisterAdmin)
+			admin.POST("/login", h.LoginAdmin)
 		}
 	}
 
@@ -76,6 +83,28 @@ func staticCORS() gin.HandlerFunc {
 			c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 		}
 
+		c.Next()
+	}
+}
+
+func (h *Handlers) AdminAuthenticateJWT() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		tokenString := c.GetHeader("Authorization")
+
+		if tokenString == "" {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "missing token"})
+			c.Abort()
+			return
+		}
+
+		claims, err := token.ValidateToken(tokenString, h.config.JWTSECRETKEY)
+		if err != nil {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
+			c.Abort()
+			return
+		}
+
+		c.Set("username", claims.Username)
 		c.Next()
 	}
 }

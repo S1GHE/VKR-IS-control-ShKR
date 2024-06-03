@@ -1,5 +1,12 @@
 import {ReactNode} from "react";
-import {CatalogChunk, CustomerAdmin, HomeChunk, MainAdmin} from "@src/pages/client";
+import {
+  AnalyticsChunk,
+  ApplicationChunk,
+  CatalogChunk,
+  CustomerAdmin, FeedBackChunk,
+  HomeChunk,
+  MainAdmin, SettingChunk
+} from "@src/pages/client";
 
 interface IPaths {
   to: string
@@ -12,6 +19,15 @@ export const ClientRoutesPublic:Array<IPaths> = [
 ]
 
 export const AdminRoutes: Array<IPaths> = [
-  {to: "/admin", element: <MainAdmin/>},
-  {to: "/admin/customer", element: <CustomerAdmin/>}
+  // Дашборды
+  {to: "/admin/home", element: <MainAdmin/>},
+  {to: "/admin/customer", element: <CustomerAdmin/>},
+  // Аналитка
+  {to: "/admin/analytics", element: <AnalyticsChunk/>},
+  // Заявки на курсы
+  {to: "/admin/application", element: <ApplicationChunk/>},
+  // Обратная свзь
+  {to: "/admin/feedback", element: <FeedBackChunk/>},
+  // Настйроки курсов
+  {to: "/admin/settings", element: <SettingChunk/>}
 ]

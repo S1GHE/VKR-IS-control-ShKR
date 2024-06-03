@@ -1,0 +1,126 @@
+@use "@src/shared/scss/func/func";
+
+.bg_page{
+  background-color: var(--gray-light);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding-inline: func.vw(16, 720);
+  
+  @media (max-width: 540px) {
+    padding-inline: func.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding-inline: func.vw(16, 540);
+  }
+}
+
+.login_form{
+  border-radius: func.vw(10, 1920);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: func.vw(32, 1920);
+  gap: func.vw(16, 1920);
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: func.vw(8, 1920);
+  }
+
+  &__input{
+    display: flex;
+    flex-direction: column;
+    gap: func.vw(16, 1920);
+  }
+  
+  @media (max-width: 1440px) {
+    border-radius: func.vw(10, 1440);
+    padding: func.vw(32, 1440);
+    gap: func.vw(16, 1440);
+
+    &__header{
+      gap: func.vw(8, 1440);
+    }
+
+    &__input{
+      gap: func.vw(16, 1440);
+    }
+  }
+  
+  @media (max-width: 960px) {
+    border-radius: func.vw(10, 960);
+    padding: func.vw(32, 960);
+    gap: func.vw(16, 960);
+
+    &__header{
+      gap: func.vw(8, 960);
+    }
+
+    &__input{
+      gap: func.vw(16, 960);
+    }
+  }
+
+  @media (max-width: 720px) {
+    border-radius: func.vw(10, 720);
+    padding: func.vw(32, 720);
+    gap: func.vw(16, 720);
+
+    &__header{
+      gap: func.vw(8, 720);
+    }
+
+    &__input{
+      gap: func.vw(16, 720);
+    }
+  }
+
+  @media (max-width: 720px) {
+    border-radius: func.vw(10, 720);
+    padding: func.vw(32, 720);
+    gap: func.vw(16, 720);
+
+    &__header{
+      gap: func.vw(8, 720);
+    }
+
+    &__input{
+      gap: func.vw(16, 720);
+    }
+  }
+
+  @media (max-width: 540px) {
+    border-radius: func.vw(10, 540);
+    padding: func.vw(32, 540);
+    gap: func.vw(16, 540);
+
+    &__header{
+      gap: func.vw(8, 540);
+    }
+
+    &__input{
+      gap: func.vw(16, 540);
+    }
+  }
+
+  @media (max-width: 420px) {
+    border-radius: func.vw(10, 420);
+    padding: func.vw(32, 420);
+    gap: func.vw(16, 420);
+
+    &__header{
+      gap: func.vw(8, 420);
+    }
+
+    &__input{
+      gap: func.vw(16, 420);
+    }
+  }
+}

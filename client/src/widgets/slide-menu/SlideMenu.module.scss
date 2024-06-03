@@ -1,0 +1,40 @@
+@use "@src/shared/scss/func/func";
+
+.header{
+  height: 100vh;
+  position: relative;
+  padding: func.vw(32, 1920) func.vw(16, 1920);
+  box-shadow: 10px 4px 35px 0 rgba(34, 60, 80, 0.2);
+}
+
+.link_container{
+  display: flex;
+  flex-direction: column;
+  gap: func.vw(8, 1920);
+  margin-block: func.vw(24, 1920);
+
+  a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: func.vw(8, 1920);
+    padding-inline: func.vw(24, 1920);
+  }
+}
+
+.logout_container{
+  position: absolute;
+  bottom: func.vw(32, 1920);
+  left: 0;
+  width: 100%;
+  padding-inline: func.vw(32, 1920);
+
+  button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: func.vw(8, 1920);
+    width: 100%;
+  }
+}

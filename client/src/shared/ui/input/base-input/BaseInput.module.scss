@@ -9,18 +9,19 @@
   padding: func.vw(8, 1920) func.vw(16, 1920);
   border-radius: 5px;
   transition-duration: 300ms;
+  color: var(--black);
 
   &::placeholder{
-    color: var(--white-t50);
+    color: var(--black-t50);
   }
 
   &:hover{
     transition-duration: 0ms;
-    border: 2px solid var(--white);
+    border: 2px solid var(--black-t50);
   }
 
   &:active, &:focus{
-    border: 2px solid var(--white);
+    border: 2px solid var(--black-t50);
   }
 
   &.error{
@@ -37,7 +38,7 @@
     border: 1px solid var(--green);
 
     &:hover, &:active, &:focus{
-      box-shadow: 0 0 0 3px var(--green-dark);
+      box-shadow: 0 0 0 3px #2B7D644C;
     }
   }
 

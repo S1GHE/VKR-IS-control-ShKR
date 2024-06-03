@@ -1,0 +1,11 @@
+@use "@src/shared/scss/func/func";
+
+.main{
+  display: flex;
+  align-items: flex-start;
+  gap: func.vw(32, 1920);
+}
+
+.outlet{
+  margin-top: func.vw(32, 1920);
+}

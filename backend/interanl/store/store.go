@@ -15,6 +15,7 @@ type Store struct {
 	db            *sql.DB
 	CategoriesRep *CategoriesRepository
 	CoursesRep    *CourseRep
+	AdminRep      *AdminRep
 }
 
 func New(config *config.Config, log *logrus.Logger) *Store {
@@ -70,4 +71,13 @@ func (s *Store) Courses() *CourseRep {
 
 	s.CoursesRep = &CourseRep{store: s}
 	return s.CoursesRep
+}
+
+func (s *Store) Admin() *AdminRep {
+	if s.AdminRep != nil {
+		return s.AdminRep
+	}
+
+	s.AdminRep = &AdminRep{store: s}
+	return s.AdminRep
 }
