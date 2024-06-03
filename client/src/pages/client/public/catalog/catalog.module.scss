@@ -90,12 +90,28 @@
 .cat_container {
   margin-block: func.vw(32, 720);
 
+  button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: func.vw(8, 720);
+    width: 100%;
+  }
+
   @media (max-width: 540px) {
     margin-block: func.vw(32, 540);
+
+    button{
+      gap: func.vw(8, 540);
+    }
   }
 
   @media (max-width: 420px) {
     margin-block: func.vw(32, 420);
+
+    button{
+      gap: func.vw(8, 420);
+    }
   }
 }
 
