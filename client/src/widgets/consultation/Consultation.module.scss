@@ -1,0 +1,213 @@
+@use "@src/shared/scss/func/func";
+
+.container {
+	width: 100%;
+	background-color: var(--black);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: max-content;
+
+	border-radius: func.vw(12, 1920);
+	padding-block: func.vw(98, 1920);
+	padding-inline: func.vw(17, 1920);
+
+	@media (max-width: 1440px) {
+		border-radius: func.vw(12, 1440);
+		padding-block: func.vw(98, 1440);
+		padding-inline: func.vw(17, 1440);
+	}
+	@media (max-width: 960px) {
+		border-radius: func.vw(12, 960);
+		padding-block: func.vw(24, 960);
+		padding-inline: func.vw(24, 960);
+	}
+	@media (max-width: 720px) {
+		border-radius: func.vw(12, 720);
+		padding-block: func.vw(32, 720);
+		padding-inline: func.vw(32, 720);
+	}
+	@media (max-width: 540px) {
+		border-radius: func.vw(12, 540);
+		padding-block: func.vw(32, 540);
+		padding-inline: func.vw(32, 540);
+	}
+	@media (max-width: 420px) {
+		border-radius: func.vw(12, 420);
+		padding-block: func.vw(32, 420);
+		padding-inline: func.vw(32, 420);
+	}
+}
+
+.inputs {
+	gap: func.vw(8, 1920);
+	justify-content: center;
+	display: grid;
+
+	@media (max-width: 1440px) {
+		gap: func.vw(8, 1440);
+	}
+	@media (max-width: 960px) {
+		gap: func.vw(8, 960);
+		margin-block: 0;
+		grid-template-columns: 1fr 1fr;
+		margin-inline: 0;
+	}
+	@media (max-width: 720px) {
+		display: flex;
+		flex-direction: column;
+		gap: func.vw(8, 720);
+	}
+	@media (max-width: 540px) {
+		gap: func.vw(8, 540);
+	}
+	@media (max-width: 420px) {
+		gap: func.vw(8, 420);
+	}
+}
+
+.flexContainer {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+
+	@media (max-width: 960px) {
+		flex-direction: row;
+		gap: func.vw(60, 960);
+	}
+
+	@media (max-width: 720px) {
+		flex-direction: column;
+		gap: 0;
+	}
+
+	button {
+		grid-column-start: 4;
+		grid-row-start: 2;
+		grid-row-end: 3;
+		align-self: end;
+		height: func.vw(50, 1920);
+
+		@media (max-width: 1440px) {
+			height: func.vw(50, 1440);
+		}
+		@media (max-width: 960px) {
+			height: func.vw(50, 960);
+			width: 100%;
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: unset;
+			grid-row-end: unset;
+		}
+		@media (max-width: 720px) {
+			height: func.vw(50, 720);
+		}
+		@media (max-width: 540px) {
+			height: func.vw(50, 540);
+		}
+		@media (max-width: 420px) {
+			height: func.vw(50, 420);
+		}
+	}
+}
+
+.consultationHeader {
+	color: var(--white);
+	grid-column-start: 1;
+	grid-column-end: 5;
+	max-width: 100%;
+
+	padding-bottom: func.vw(32, 1920);
+
+	@media (max-width: 1440px) {
+		padding-bottom: func.vw(32, 1440);
+	}
+	@media (max-width: 960px) {
+		padding-bottom: func.vw(32, 960);
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 7;
+	}
+	@media (max-width: 720px) {
+		padding-bottom: func.vw(32, 720);
+		text-align: center;
+	}
+	@media (max-width: 540px) {
+		padding-bottom: func.vw(32, 540);
+	}
+	@media (max-width: 420px) {
+		padding-bottom: func.vw(32, 420);
+	}
+}
+
+.link {
+	cursor: pointer;
+	display: inline;
+	text-decoration: underline !important;
+
+	&:hover {
+		color: var(--white);
+	}
+}
+
+.input {
+	width: func.vw(250, 1920);
+
+	@media (max-width: 1440px) {
+		width: func.vw(250, 1440);
+	}
+	@media (max-width: 960px) {
+		width: 100%;
+	}
+
+	input {
+		height: func.vw(50, 1920) !important;
+
+		@media (max-width: 1440px) {
+			height: func.vw(50, 1440) !important;
+		}
+		@media (max-width: 960px) {
+			height: func.vw(50, 960) !important;
+		}
+		@media (max-width: 720px) {
+			height: func.vw(50, 720) !important;
+		}
+		@media (max-width: 540px) {
+			height: func.vw(50, 540) !important;
+		}
+		@media (max-width: 420px) {
+			height: func.vw(50, 420) !important;
+		}
+	}
+}
+
+.agreement {
+	display: flex;
+	grid-row-start: 5;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	max-width: 100%;
+	color: var(--white-t50);
+	gap: func.vw(8, 1920);
+
+	@media (max-width: 1440px) {
+		gap: func.vw(8, 1440);
+	}
+	@media (max-width: 960px) {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start: unset;
+		grid-row-end: unset;
+		gap: func.vw(8, 960);
+	}
+	@media (max-width: 720px) {
+		gap: func.vw(8, 720);
+	}
+	@media (max-width: 540px) {
+		gap: func.vw(8, 540);
+	}
+	@media (max-width: 420px) {
+		gap: func.vw(8, 420);
+	}
+}
