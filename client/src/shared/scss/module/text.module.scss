@@ -4,6 +4,10 @@
     font-weight: normal;
     font-size: func.vw(12, 1920);
 
+    &_white {
+        color: var(--white);
+    }
+
     &_bold{
         @extend .p_12;
         font-weight: bold;
@@ -67,6 +71,10 @@
     &_bold{
         @extend .p_16;
         font-weight: bold;
+    }
+
+    &_white {
+        color: var(--white);
     }
     
     @media (max-width: 1440px) {
@@ -167,6 +175,31 @@
 
     @media (max-width: 420px) {
         font-size: func.vw(32, 420);
+    }
+}
+
+.h_40{
+    font-weight: bold;
+    font-size: func.vw(40, 1920);
+
+    @media (max-width: 1440px) {
+        font-size: func.vw(40, 1440);
+    }
+
+    @media (max-width: 960px) {
+        font-size: func.vw(40, 960);
+    }
+
+    @media (max-width: 720px) {
+        font-size: func.vw(40, 720);
+    }
+
+    @media (max-width: 540px) {
+        font-size: func.vw(40, 540);
+    }
+
+    @media (max-width: 420px) {
+        font-size: func.vw(40, 420);
     }
 }
 

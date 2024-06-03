@@ -1,0 +1,67 @@
+@use "@src/shared/scss/func/func";
+
+.base_input{
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  border: 1px solid var(--gray);
+  height: func.vw(36, 1920);
+  padding: func.vw(8, 1920) func.vw(16, 1920);
+  border-radius: 5px;
+  transition-duration: 300ms;
+
+  &::placeholder{
+    color: var(--white-t50);
+  }
+
+  &:hover{
+    transition-duration: 0ms;
+    border: 2px solid var(--white);
+  }
+
+  &:active, &:focus{
+    border: 2px solid var(--white);
+  }
+
+  &.error{
+    @extend .base_input;
+    border: 1px solid var(--red);
+
+    &:hover, &:active, &:focus{
+      box-shadow: 0 0 0 3px var(--red-t50);
+    }
+  }
+
+  &.success{
+    @extend .base_input;
+    border: 1px solid var(--green);
+
+    &:hover, &:active, &:focus{
+      box-shadow: 0 0 0 3px var(--green-dark);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    height: func.vw(36, 1440);
+    padding: func.vw(8, 1440) func.vw(16, 1440);
+  }
+
+  @media (max-width: 960px) {
+    height: func.vw(36, 960);
+    padding: func.vw(8, 960) func.vw(16, 960);
+  }
+
+  @media (max-width: 720px) {
+    height: func.vw(36, 720);
+    padding: func.vw(8, 720) func.vw(16, 720);
+  }
+
+  @media (max-width: 540px) {
+    height: func.vw(36, 540);
+    padding: func.vw(8, 540) func.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    height: func.vw(36, 420);
+    padding: func.vw(8, 420) func.vw(16, 420);
+  }
+}

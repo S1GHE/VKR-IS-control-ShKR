@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import HeaderStyle from '@src/widgets/layout/client/section/header/Header.module.scss'
-import Logo from "@src/shared/assets/logo/mainLogo.svg"
+import Logo from "@src/shared/assets/icons/logo/mainLogo.svg"
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {TextModule} from "@src/shared/scss";
-import {useClass, useResize} from "@src/shared/hooks";
-import CaretDown from "@src/shared/assets/ui/caret.svg"
+import {useClass} from "@src/shared/hooks";
+import CaretDown from "@src/shared/assets/icons/ui/caret.svg"
 import {BigBtn} from "@src/shared/ui/btn/big-btn/BigBtn";
-import BurgerImage from "@src/shared/assets/header/burger.svg"
+import BurgerImage from "@src/shared/assets/icons/header/burger.svg"
 import { Link } from 'react-router-dom';
 import {BottomModal} from "@src/features/modals";
+import {GlobalContext} from "@src/app/provider";
 
 export const Header = () => {
-  const globalResize = useResize()
+  const {globalResize} = useContext(GlobalContext)!;
+
   const [isBurgerOpen, setIsBurgerOpen] = useState(false)
 
   return (
