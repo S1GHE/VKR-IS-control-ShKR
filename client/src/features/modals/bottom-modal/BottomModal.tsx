@@ -1,14 +1,9 @@
-import React, {FC, ReactNode, useEffect, useRef} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 import cls from "@src/features/modals/bottom-modal/BottomModal.module.scss"
 import {useClass} from "@src/shared/hooks";
+import {TModal} from "@src/shared/types";
 
-interface BottomModalProps {
-  isOpen: boolean
-  setIsOpen: (i: boolean) => void
-  children: ReactNode
-}
-
-export const BottomModal:FC<BottomModalProps> = ({isOpen, setIsOpen, children}) => {
+export const BottomModal:FC<TModal> = ({isOpen, setIsOpen, children}) => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

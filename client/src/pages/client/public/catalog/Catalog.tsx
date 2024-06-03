@@ -14,16 +14,27 @@ import {Loader} from "@src/features/loader";
 import EmptyFallBack from "@src/shared/assets/icons/emptyFallback_image.svg";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {BottomModal} from "@src/features/modals";
+import {Search} from "@src/features/search";
 
 export const Catalog = () => {
   const {id} = useParams();
+  const [searchValue, setSearchValue] = useState<string>('')
   const {categories} = useUnit($allData);
   const [courses, setCourses] = useState<Array<TCourses>>([]);
+  const [filteredCourses, setFilteredCourses] = useState<Array<TCourses>>([])
   const [selectedCourse, setSelectedCourse] = useState<TCourses | null>(null);
   const [activeCategories, setActiveCategories] = useState<TCategories | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [bottomOpen, setBottomOpen] = useState<boolean>(false);
   const globalResize = useResize()
+
+  useEffect(() => {
+    if (!!searchValue) {
+      setFilteredCourses(courses.filter((course) => course.CourseName.toLowerCase().includes(searchValue.toLowerCase())))
+    } else {
+      setFilteredCourses(courses)
+    }
+  }, [searchValue, courses])
 
 
   useEffect(() => {
@@ -37,6 +48,7 @@ export const Catalog = () => {
         .then((res) => {
           if (res.data.courses !== null) {
             setCourses(res.data.courses);
+            setFilteredCourses(res.data.courses.filter((course) => course.CourseName.includes(searchValue)))
           } else {
             setCourses([]);
           }
@@ -61,13 +73,18 @@ export const Catalog = () => {
       </h2>
 
       {
-        globalResize.isScreenMd ? <div className={cls.header_list}>
-            {categories.map((el) => (
-              <LinkCategories to={`/catalog/${el.ID}`} key={el.ID}>
-                <p className={TextModule.p_16}>{el.Name}</p>
-              </LinkCategories>
-            ))}
-          </div> :
+        globalResize.isScreenMd ?
+          <div className={cls.header}>
+            <div className={cls.header_list}>
+              {categories.map((el) => (
+                <LinkCategories to={`/catalog/${el.ID}`} key={el.ID}>
+                  <p className={TextModule.p_16}>{el.Name}</p>
+                </LinkCategories>
+              ))}
+            </div>
+            <Search className={cls.search} searchValue={searchValue} setSearchValue={setSearchValue}>Какой навык или курс вы ищете?</Search>
+          </div>
+        :
           <>
             <div className={cls.cat_container}>
               <MainBtn state={"black"} onClick={() => setBottomOpen(!bottomOpen)}>
@@ -85,6 +102,7 @@ export const Catalog = () => {
                         d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
                 </svg>
               </MainBtn>
+              <Search className={cls.search} searchValue={searchValue} setSearchValue={setSearchValue}>Какой навык или курс вы ищете?</Search>
             </div>
             <BottomModal isOpen={bottomOpen} setIsOpen={setBottomOpen}>
               <div className={cls.categories_modal}>
@@ -100,9 +118,9 @@ export const Catalog = () => {
       }
       {isLoading ? (
         <div className={cls.not_found}><Loader/> <p className={TextModule.p_14}>Загрузка</p></div>
-      ) : courses.length > 0 ? (
+      ) : filteredCourses.length > 0 ? (
         <div className={cls.header_list_courses}>
-          {courses.map((el) => (
+          {filteredCourses.map((el) => (
             <CourseCard
               key={el.ID}
               CardInfo={el}

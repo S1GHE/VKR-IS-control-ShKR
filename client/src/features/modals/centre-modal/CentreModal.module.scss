@@ -1,0 +1,83 @@
+@use "@src/shared/scss/func/_func.scss";
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	height: 100%;
+	width: 100vw;
+	background-color: var(--black-t50);
+	backdrop-filter: blur(2px);
+	z-index: 119;
+	top: 0;
+	left: func.vw(0, 1920);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+
+	&.open {
+		display: flex;
+		animation-name: modal-appear;
+	}
+
+	&.closed {
+		display: none;
+		animation-name: modal-disappear;
+	}
+}
+
+@keyframes modal-appear {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	100% {
+		display: flex;
+		opacity: 1;
+	}
+}
+
+@keyframes modal-disappear {
+	0% {
+		display: flex;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.modal {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--white);
+	border-radius: 8px;
+	height: max-content;
+	width: func.vw(600, 1920);
+	padding: func.vw(32, 1920);
+
+	@media (max-width: 1440px) {
+		padding: func.vw(32, 1440);
+		width: func.vw(700, 1440);
+	}
+	@media (max-width: 960px) {
+		padding: func.vw(32, 960);
+		width: func.vw(700, 960);
+	}
+	@media (max-width: 720px) {
+		padding: func.vw(32, 720);
+		width: func.vw(600, 720);
+	}
+	@media (max-width: 540px) {
+		padding: func.vw(32, 540);
+		width: func.vw(540, 540);
+	}
+	@media (max-width: 420px) {
+		padding: func.vw(32, 420);
+		width: func.vw(420, 420);
+	}
+}

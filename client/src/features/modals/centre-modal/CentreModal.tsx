@@ -1,15 +1,15 @@
 import React, {FC, useEffect, useRef} from 'react';
-import cls from "@src/features/modals/right-modal/RightModal.module.scss"
-import {useClass} from "@src/shared/hooks";
 import {TModal} from "@src/shared/types";
+import {useClass} from "@src/shared/hooks";
+import cls from "@src/features/modals/centre-modal/CentreModal.module.scss"
 
-export const RightModal:FC<TModal> = ({setIsOpen, isOpen, children}) => {
+export const CentreModal:FC<TModal> = ({setIsOpen, isOpen, children}) => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && isOpen && (!event.composedPath().includes(modalRef.current))) {
-        setIsOpen(null)
+        setIsOpen(false)
       }
     }
     document.body.addEventListener('click', handleClickOutside)
@@ -17,8 +17,8 @@ export const RightModal:FC<TModal> = ({setIsOpen, isOpen, children}) => {
   }, [isOpen])
 
   return (
-    <div className={useClass([cls.modalContainer, isOpen ? cls["open"] : cls["closed"]])}>
-      <div ref={modalRef} className={useClass([cls.modal, isOpen ? cls["open"] : cls["closed"]])}>
+    <div className={useClass([cls.container, isOpen ? cls["open"] : cls["closed"]])}>
+      <div ref={modalRef} className={cls.modal}>
         {children}
       </div>
     </div>

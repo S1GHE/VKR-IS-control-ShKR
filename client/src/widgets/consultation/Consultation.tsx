@@ -83,7 +83,7 @@ export const Consultation = () => {
               </a> в целях обработки заявки и обратной связи по ней.
             </p>
           </div>
-          <BigBtn state={"white"}>
+          <BigBtn className={TextModule.p_16} state={"white"}>
             Спросить
           </BigBtn>
         </div>

@@ -166,9 +166,23 @@
 
 .input {
 	width: 100%;
+	color: var(--white);
+
+	::placeholder {
+		color: var(--white-t50);
+	}
 
 	input {
+		color: var(--white) !important;
 		height: func.vw(50, 1920) !important;
+
+		&:active, &:focus{
+			box-shadow: 0 0 0 2px var(--white);
+		}
+
+		&:hover{
+			box-shadow: 0 0 0 2px var(--white);
+		}
 
 		@media (max-width: 1440px) {
 			height: func.vw(50, 1440) !important;
