@@ -11,6 +11,21 @@ type AdminRep struct {
 	store *Store
 }
 
+func (a *AdminRep) DeleteByID(id string) error {
+	const op = "internal.store.AdminRep.DeleteByID"
+
+	_, err := a.store.db.Exec(
+		`delete from admin where id = ?`, id,
+	)
+
+	if err != nil {
+		a.store.log.Warning(helpers.LogSprintF(op, err))
+		return err
+	}
+
+	return nil
+}
+
 func (a *AdminRep) GetAllAdmin() ([]model.Admin, error) {
 	const op = "internal.store.AdminRep.GetAllAdmin"
 	rows, err := a.store.db.Query(

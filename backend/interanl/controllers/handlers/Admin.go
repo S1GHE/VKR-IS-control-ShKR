@@ -9,6 +9,29 @@ import (
 	"net/http"
 )
 
+func (h *Handlers) DeletedAdmin(c *gin.Context) {
+	const op = "controllers.handlers.admin.DeletedAdmin"
+
+	var req struct {
+		ID string `json:"id" binding:"required"`
+	}
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+		h.respondWithError(c, op, http.StatusBadRequest, err)
+		return
+	}
+
+	if err := h.store.Admin().DeleteByID(req.ID); err != nil {
+		h.respondWithError(c, op, http.StatusInternalServerError, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status": http.StatusOK,
+		"msg":    "Администратор удален",
+	})
+}
+
 func (h *Handlers) GetAllAdmin(c *gin.Context) {
 	const op = "controllers.handlers.admin.GetAllAdmin"
 	admins, err := h.store.Admin().GetAllAdmin()

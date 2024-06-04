@@ -55,6 +55,7 @@ func (h *Handlers) New() *gin.Engine {
 			admin.GET("/", h.AdminAuthenticateJWT(), h.GetAllAdmin)
 			admin.POST("/register", h.AdminAuthenticateJWT(), h.RegisterAdmin)
 			admin.POST("/login", h.LoginAdmin)
+			admin.DELETE("/", h.AdminAuthenticateJWT(), h.DeletedAdmin)
 		}
 
 		var question = api.Group("/question")
