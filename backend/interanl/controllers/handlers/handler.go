@@ -61,6 +61,13 @@ func (h *Handlers) New() *gin.Engine {
 			question.POST("/", h.RegNewQuestion)
 			question.GET("/", h.AdminAuthenticateJWT(), h.GetAllQuestion)
 		}
+
+		var user = api.Group("/user")
+		{
+			user.GET("/", h.AdminAuthenticateJWT(), h.GetAllUser)
+			user.POST("/register", h.RegisterNewUser)
+			user.POST("/login", h.LoginUser)
+		}
 	}
 
 	router.Use(staticCORS())

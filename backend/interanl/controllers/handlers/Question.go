@@ -35,9 +35,9 @@ func (h *Handlers) RegNewQuestion(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status":       http.StatusOK,
-		"msg":          "Запрос успешно создан",
-		"categoriesId": id,
+		"status":     http.StatusOK,
+		"msg":        "Запрос успешно создан",
+		"questionId": id,
 	})
 }
 

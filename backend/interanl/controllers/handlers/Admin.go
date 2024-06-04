@@ -36,9 +36,9 @@ func (h *Handlers) RegisterAdmin(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"status":       http.StatusOK,
-		"msg":          "Админстартор добавлен",
-		"categoriesId": id,
+		"status":  http.StatusOK,
+		"msg":     "Админстартор добавлен",
+		"AdminId": id,
 	})
 }
 
