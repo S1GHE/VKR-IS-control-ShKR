@@ -1,5 +1,4 @@
 @use "@src/shared/scss/func/func";
-
 .header{
   height: 100vh;
   position: relative;
@@ -9,113 +8,10 @@
   @media (max-width: 1440px) {
     padding: func.vw(32, 1440) func.vw(16, 1440);
   }
-  @media (max-width: 360px) {
-
-  }
-
-  &.open {
-    display: block;
-  }
-  &.closed {
-    display: none;
-  }
-}
-
-
-.burgerSidebar {
-  height: 100vh;
-  width: func.vw(40, 720);
-  margin-inline: func.vw(12, 720);
-  margin-top: func.vw(40, 1920);
-
-  &.open {
-    display: block;
-  }
-  &.closed {
-    display: none;
-  }
-
-  @media (max-width: 540px) {
-    width: func.vw(40, 720);
-    margin-inline: func.vw(8, 540);
-    margin-top: func.vw(12, 540);
-  }
-  @media (max-width: 420px) {
-    width: func.vw(40, 420);
-    margin-inline: func.vw(8, 420);
-    margin-top: func.vw(12, 420);
-  }
-}
-
-.burgerImageContainer {
-  height: func.vw(32, 720);
-  width: func.vw(32, 720);
-  position: relative;
-  cursor: pointer;
-
-  @media (max-width: 540px) {
-    height: func.vw(37, 540);
-    width: func.vw(37, 540);
-  }
-  @media (max-width: 420px) {
-    height: func.vw(32, 420);
-    width: func.vw(32, 420);
-  }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: center;
-    height: 100%;
-    width: 100%;
-  }
 }
 
 .link_home{
   padding-inline: func.vw(24, 1920);
-  flex-shrink: 100;
-
-  svg {
-    height: 100%;
-  }
-}
-
-.crossIcon {
-  display: none;
-  cursor: pointer;
-
-  @media (max-width: 719px) {
-    display: inline-block;
-    position: relative;
-    height: func.vw(32, 720);
-    width: func.vw(32, 720);
-  }
-  @media (max-width: 540px) {
-    height: func.vw(32, 540);
-    width: func.vw(32, 540);
-  }
-  @media (max-width: 420px) {
-    height: func.vw(32, 420);
-    width: func.vw(32, 420);
-  }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    object-position: center;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.sidebarHeader {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
 }
 
 .link_container{
@@ -123,7 +19,6 @@
   flex-direction: column;
   gap: func.vw(8, 1920);
   margin-block: func.vw(24, 1920);
-
   a{
     display: flex;
     flex-direction: row;
@@ -133,14 +28,10 @@
     padding-inline: func.vw(24, 1920);
   }
 }
-
 .logout_container{
-  position: absolute;
   bottom: func.vw(32, 1920);
-  left: 0;
   width: 100%;
   padding-inline: func.vw(32, 1920);
-
   button{
     display: flex;
     flex-direction: row;

@@ -87,6 +87,7 @@ export const Catalog = () => {
         :
           <>
             <div className={cls.cat_container}>
+              <Search className={cls.search} searchValue={searchValue} setSearchValue={setSearchValue}>Что ищете?</Search>
               <MainBtn state={"black"} onClick={() => setBottomOpen(!bottomOpen)}>
                 <p className={TextModule.p_14}>
                   Направления
@@ -102,7 +103,6 @@ export const Catalog = () => {
                         d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
                 </svg>
               </MainBtn>
-              <Search className={cls.search} searchValue={searchValue} setSearchValue={setSearchValue}>Какой навык или курс вы ищете?</Search>
             </div>
             <BottomModal isOpen={bottomOpen} setIsOpen={setBottomOpen}>
               <div className={cls.categories_modal}>

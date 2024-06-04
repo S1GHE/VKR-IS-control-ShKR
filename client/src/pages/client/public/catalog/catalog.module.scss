@@ -13,20 +13,15 @@
   }
 
   @media (max-width: 720px) {
-    margin-top: func.vw(24, 720);
-  }
-
-  @media (max-width: 540px) {
-    margin-top: func.vw(24, 540);
-  }
-
-  @media (max-width: 420px) {
-    margin-top: func.vw(24, 420);
+    margin-top: 0;
+    flex-shrink: 1;
+    width: 100%;
   }
 }
 
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .header_list {
@@ -118,17 +113,20 @@
 
 .cat_container {
   margin-block: func.vw(32, 720);
+  display: flex;
+  gap: func.vw(8, 720);
 
   button{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: func.vw(8, 720);
-    width: 100%;
+    flex-shrink: 0;
   }
 
   @media (max-width: 540px) {
     margin-block: func.vw(32, 540);
+    gap: func.vw(8, 540);
 
     button{
       gap: func.vw(8, 540);

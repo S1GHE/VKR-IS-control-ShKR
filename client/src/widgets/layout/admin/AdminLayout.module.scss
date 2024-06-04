@@ -1,9 +1,12 @@
 @use "@src/shared/scss/func/func";
 
 .main{
-  display: flex;
   align-items: flex-start;
   gap: func.vw(32, 1920);
+
+  @media (min-width: 960px) {
+    display: flex;
+  }
 }
 
 .outlet{
