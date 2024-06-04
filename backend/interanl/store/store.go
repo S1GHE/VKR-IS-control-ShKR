@@ -16,6 +16,9 @@ type Store struct {
 	CategoriesRep *CategoriesRepository
 	CoursesRep    *CourseRep
 	AdminRep      *AdminRep
+	QuestionRep   *QuestionRep
+	UserRep       *UserRep
+	AppRep        *ApplicationRep
 }
 
 func New(config *config.Config, log *logrus.Logger) *Store {
@@ -80,4 +83,34 @@ func (s *Store) Admin() *AdminRep {
 
 	s.AdminRep = &AdminRep{store: s}
 	return s.AdminRep
+}
+
+func (s *Store) Application() *ApplicationRep {
+	if s.AppRep != nil {
+		return s.AppRep
+	}
+
+	s.AppRep = &ApplicationRep{store: s}
+	return s.AppRep
+}
+
+func (s *Store) User() *UserRep {
+	if s.UserRep != nil {
+		return s.UserRep
+	}
+
+	s.UserRep = &UserRep{store: s}
+	return s.UserRep
+}
+
+func (s *Store) Question() *QuestionRep {
+	if s.QuestionRep != nil {
+		return s.QuestionRep
+	}
+
+	s.QuestionRep = &QuestionRep{
+		store: s,
+	}
+
+	return s.QuestionRep
 }

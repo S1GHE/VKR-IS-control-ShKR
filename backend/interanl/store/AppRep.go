@@ -1,5 +1,5 @@
 package store
 
-type UserRep struct {
+type ApplicationRep struct {
 	store *Store
 }
