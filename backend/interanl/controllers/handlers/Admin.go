@@ -9,6 +9,20 @@ import (
 	"net/http"
 )
 
+func (h *Handlers) GetAllAdmin(c *gin.Context) {
+	const op = "controllers.handlers.admin.GetAllAdmin"
+	admins, err := h.store.Admin().GetAllAdmin()
+	if err != nil {
+		h.respondWithError(c, op, http.StatusInternalServerError, err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status": http.StatusOK,
+		"admins": admins,
+	})
+}
+
 func (h *Handlers) RegisterAdmin(c *gin.Context) {
 	const op = "controllers.handlers.admin.RegisterAdmin"
 	var req struct {

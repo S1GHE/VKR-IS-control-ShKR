@@ -52,6 +52,7 @@ func (h *Handlers) New() *gin.Engine {
 
 		var admin = api.Group("/admin")
 		{
+			admin.GET("/", h.AdminAuthenticateJWT(), h.GetAllAdmin)
 			admin.POST("/register", h.AdminAuthenticateJWT(), h.RegisterAdmin)
 			admin.POST("/login", h.LoginAdmin)
 		}

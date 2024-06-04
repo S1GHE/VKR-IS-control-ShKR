@@ -11,6 +11,41 @@ type AdminRep struct {
 	store *Store
 }
 
+func (a *AdminRep) GetAllAdmin() ([]model.Admin, error) {
+	const op = "internal.store.AdminRep.GetAllAdmin"
+	rows, err := a.store.db.Query(
+		`select id, username, password from admin`)
+
+	if err != nil {
+		a.store.log.Warning(helpers.LogSprintF(op, err))
+		return nil, err
+	}
+
+	defer func(rows *sql.Rows) {
+		var err = rows.Close()
+		if err != nil {
+			a.store.log.Warning(helpers.LogSprintF(op, err))
+		}
+	}(rows)
+
+	var admins []model.Admin
+	for rows.Next() {
+		var adm model.Admin
+		if err := rows.Scan(&adm.ID, &adm.UserName, &adm.Password); err != nil {
+			a.store.log.Warning(helpers.LogSprintF(op, err))
+			return nil, err
+		}
+		admins = append(admins, adm)
+	}
+
+	if err = rows.Err(); err != nil {
+		a.store.log.Warning(helpers.LogSprintF(op, err))
+		return nil, err
+	}
+
+	return admins, nil
+}
+
 func (a *AdminRep) FindByUserName(username string) (model.Admin, error) {
 	const op = "internal.store.AdminRep.FindByUserName"
 	var admin model.Admin
