@@ -2,7 +2,7 @@ import axios from "axios";
 import {$token} from "@src/app/manager";
 
 export const instance = axios.create({
-  baseURL: "https`://a27506-ecbf.v.d-f.pw/api/",
+  baseURL: "https://a27506-ecbf.v.d-f.pw/api/",
   timeout: 5000
 })
 

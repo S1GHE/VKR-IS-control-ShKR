@@ -88,14 +88,12 @@ func (h *Handlers) LoginAdmin(c *gin.Context) {
 
 	if err := c.ShouldBindJSON(&req); err != nil {
 		h.respondWithError(c, op, http.StatusBadRequest, err)
-
 		return
 	}
 
 	admin, err := h.store.Admin().FindByUserName(req.UserName)
 	if err != nil {
 		h.respondWithError(c, op, http.StatusInternalServerError, err)
-
 		return
 	}
 
@@ -107,7 +105,6 @@ func (h *Handlers) LoginAdmin(c *gin.Context) {
 	token, err := tkn.GenerateToken(admin.UserName, h.config.JWTSECRETKEY)
 	if err != nil {
 		h.respondWithError(c, op, http.StatusInternalServerError, err)
-
 		return
 	}
 
