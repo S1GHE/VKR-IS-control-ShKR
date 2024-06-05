@@ -1,0 +1,93 @@
+@use "src/shared/scss/func/func";
+
+.snack_container{
+  z-index: 200;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: func.vw(20, 1920);
+  width: func.vw(400, 1920);
+  gap: func.vw(10, 1920);
+
+
+  &__btn_icon{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.alert{
+    border: 2px solid var(--yelow);
+    background-color: var(--alert);
+    color: var(--yelow);
+
+    & svg{
+      fill: var(--yelow);
+    }
+  }
+
+
+  &.error{
+    border: 2px solid var(--state-red);
+    background-color: var(--error-bg);
+    color: var(--state-red);
+
+    & svg{
+      fill: var(--state-red);
+    }
+  }
+
+  &.success{
+    border: 2px solid var(--state-success);
+    background-color: var(--success-bg);
+    color: var(--state-success);
+
+    & svg{
+      fill: var(--state-success);
+    }
+  }
+
+  &.info{
+    border: 2px solid var(--orange);
+    background-color: var(--info-bg);
+    color: var(--orange);
+
+    & svg{
+      fill: var(--orange);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    gap: func.vw(10, 1440);
+    padding: func.vw(20, 1440);
+    width: func.vw(400, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: func.vw(10, 960);
+    padding: func.vw(20, 960);
+    width: func.vw(400, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: func.vw(10, 720);
+    padding: func.vw(20, 720);
+    width: func.vw(400, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: func.vw(10, 540);
+    padding: func.vw(20, 540);
+    width: func.vw(400, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(10, 420);
+    padding: func.vw(20, 420);
+    width: func.vw(400, 420);
+  }
+}

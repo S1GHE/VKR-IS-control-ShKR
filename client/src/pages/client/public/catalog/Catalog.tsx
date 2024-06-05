@@ -143,11 +143,9 @@ export const Catalog = () => {
               курс для вашего ребенка.
             </p>
           </div>
-          <a href={"#consultation"}>
-            <LinkBase state={"green"} to={"/"}>
+            <LinkBase state={"green"} to="/#consultation">
               <p className={TextModule.p_14}>Записаться на консультацию</p>
             </LinkBase>
-          </a>
         </div>
       )}
     </>

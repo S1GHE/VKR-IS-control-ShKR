@@ -1,7 +1,246 @@
 @use "@src/shared/scss/func/_func.scss";
 
 .container {
-	width: func.vw(1380, 1440);
+	width: func.vw(1400, 1920);
 	margin-inline: auto;
-	overflow-x: hidden;
+	overflow: hidden;
+	background-color: var(--white);
+	padding-inline: func.vw(20, 1920);
+
+	@media (max-width: 1440px) {
+		width: 100%;
+		padding-inline: 0;
+
+	}
+	@media (max-width: 960px) {
+		gap: func.vw(12, 960);
+	}
+	@media (max-width: 720px) {
+		gap: func.vw(12, 720);
+	}
+	@media (max-width: 540px) {
+		gap: func.vw(12, 540);
+	}
+	@media (max-width: 420px) {
+		gap: func.vw(12, 420);
+	}
+}
+
+.wrapper {
+	padding-inline: 0;
+	padding-block: func.vw(20, 1920);
+
+
+	@media (max-width: 1440px) {
+		padding-inline: func.vw(20, 1440);
+		padding-block: func.vw(20, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding-inline: func.vw(20, 960);
+		padding-block: func.vw(20, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding-inline: func.vw(20, 720);
+		padding-block: func.vw(20, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding-inline: func.vw(20, 540);
+		padding-block: func.vw(20, 540);
+	}
+
+	@media (max-width: 420px) {
+		padding-inline: func.vw(20, 420);
+		padding-block: func.vw(20, 420);
+	}
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: func.vw(12, 1920);
+
+	@media (max-width: 1440px) {
+		gap: func.vw(12, 1440);
+	}
+	@media (max-width: 960px) {
+		gap: func.vw(12, 960);
+	}
+	@media (max-width: 720px) {
+		gap: func.vw(12, 720);
+	}
+	@media (max-width: 540px) {
+		gap: func.vw(12, 540);
+	}
+	@media (max-width: 420px) {
+		gap: func.vw(12, 420);
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: func.vw(25, 1920);
+
+	@media (max-width: 1440px) {
+		padding-bottom: func.vw(25, 1440);
+	}
+	@media (max-width: 960px) {
+		padding-bottom: func.vw(25, 960);
+	}
+	@media (max-width: 720px) {
+		padding-bottom: func.vw(25, 720);
+	}
+	@media (max-width: 540px) {
+		padding-bottom: func.vw(25, 540);
+	}
+	@media (max-width: 420px) {
+		padding-bottom: func.vw(25, 420);
+	}
+
+	&_logo {
+		position: relative;
+		height: func.vw(30, 1920);
+		width: func.vw(179, 1920);
+
+		@media (max-width: 1440px) {
+			height: func.vw(30, 1440);
+			width: func.vw(179, 1440);
+		}
+		@media (max-width: 960px) {
+			height: func.vw(30, 960);
+			width: func.vw(179, 960);
+		}
+		@media (max-width: 720px) {
+			height: func.vw(30, 720);
+			width: func.vw(179, 720);
+		}
+		@media (max-width: 540px) {
+			height: func.vw(30, 540);
+			width: func.vw(179, 540);
+		}
+		@media (max-width: 420px) {
+			height: func.vw(30, 420);
+			width: func.vw(179, 420);
+		}
+
+		svg {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			object-position: center;
+			object-fit: cover;
+		}
+	}
+}
+
+.social {
+	display: flex;
+	gap: func.vw(8, 1920);
+
+	@media (max-width: 1440px) {
+		gap: func.vw(8, 1440);
+	}
+	@media (max-width: 960px) {
+		gap: func.vw(8, 960);
+	}
+	@media (max-width: 720px) {
+		gap: func.vw(8, 720);
+	}
+	@media (max-width: 540px) {
+		gap: func.vw(8, 540);
+	}
+	@media (max-width: 420px) {
+		gap: func.vw(8, 420);
+	}
+
+	&_logo {
+		position: relative;
+		height: func.vw(36, 1920);
+		width: func.vw(36, 1920);
+
+		@media (max-width: 1440px) {
+			height: func.vw(36, 1440);
+			width: func.vw(36, 1440);
+		}
+		@media (max-width: 960px) {
+			height: func.vw(36, 960);
+			width: func.vw(36, 960);
+		}
+		@media (max-width: 720px) {
+			height: func.vw(36, 720);
+			width: func.vw(36, 720);
+		}
+		@media (max-width: 540px) {
+			height: func.vw(36, 540);
+			width: func.vw(36, 540);
+		}
+		@media (max-width: 420px) {
+			height: func.vw(36, 420);
+			width: func.vw(36, 420);
+		}
+	}
+
+	svg {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		object-position: center;
+		object-fit: cover;
+		padding: func.vw(6, 1920);
+
+		@media (max-width: 1440px) {
+			padding: func.vw(6, 1440);
+		}
+		@media (max-width: 960px) {
+			padding: func.vw(6, 960);
+		}
+		@media (max-width: 720px) {
+			padding: func.vw(6, 720);
+		}
+		@media (max-width: 540px) {
+			padding: func.vw(6, 540);
+		}
+		@media (max-width: 420px) {
+			padding: func.vw(6, 420);
+		}
+	}
+}
+
+.content {
+	display: flex;
+	gap: func.vw(30, 1920);
+	padding-inline: func.vw(5, 1920);
+
+	a {
+		color: black !important;
+	}
+
+	@media (max-width: 1440px) {
+		gap: func.vw(30, 1440);
+		padding-inline: func.vw(5, 1440);
+	}
+	@media (max-width: 960px) {
+		gap: func.vw(30, 960);
+		padding-inline: func.vw(5, 960);
+		flex-direction: column;
+	}
+	@media (max-width: 720px) {
+		padding-inline: func.vw(5, 720);
+		gap: func.vw(30, 720);
+	}
+	@media (max-width: 540px) {
+		padding-inline: func.vw(5, 540);
+		gap: func.vw(30, 540);
+	}
+	@media (max-width: 420px) {
+		padding-inline: func.vw(5, 420);
+		gap: func.vw(30, 420);
+	}
 }
