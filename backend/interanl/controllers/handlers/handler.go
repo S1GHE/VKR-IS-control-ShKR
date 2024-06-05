@@ -41,8 +41,6 @@ func (h *Handlers) New() *gin.Engine {
 		MaxAge:           12 * time.Hour,
 	}))
 
-	router.Use(staticCORS())
-
 	var api = router.Group("/api")
 	{
 		var categories = api.Group("/categories")
@@ -89,7 +87,7 @@ func (h *Handlers) New() *gin.Engine {
 			application.PUT("/", h.UpdateApplicationStatus)
 		}
 	}
-
+	router.Use(staticCORS())
 	router.Static("/uploads", filepath.Join("uploads"))
 
 	if err := h.store.Open(); err != nil {
