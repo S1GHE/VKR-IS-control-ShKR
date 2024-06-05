@@ -2,17 +2,96 @@
 
 .q_row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(5, 200px);
+  gap: func.vw(12, 1920);
   align-items: center;
-  padding: 10px;
+  padding: func.vw(12, 1920);
   border-bottom: 1px solid #ddd;
+  
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(5, 150px);
+    gap: func.vw(12, 1440);
+    padding: func.vw(12, 1440);
+  }
+  
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(5, 200px);
+    gap: func.vw(12, 960);
+    padding: func.vw(12, 960);
+  }
+  
+  @media (max-width: 720px) {
+    gap: func.vw(12, 720);
+    padding: func.vw(12, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: func.vw(12, 540);
+    padding: func.vw(12, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(12, 420);
+    padding: func.vw(12, 420);
+  }
 }
 
 .q_cell {
-  padding: 10px;
+  padding: func.vw(12, 1920);
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
+
+  &__start{
+    display: flex;
+    flex-direction: column;
+    gap: func.vw(8, 1920);
+    padding: func.vw(12, 1920);
+  }
+
+  @media (max-width: 1440px) {
+    padding: func.vw(12, 1440);
+
+    &__start{
+      gap: func.vw(8, 1440);
+      padding: func.vw(12, 1440);
+    }
+  }
+
+  @media (max-width: 960px) {
+    padding: func.vw(12, 960);
+
+    &__start{
+      gap: func.vw(8, 960);
+      padding: func.vw(12, 960);
+    }
+  }
+
+  @media (max-width: 720px) {
+    padding: func.vw(12, 720);
+
+    &__start{
+      gap: func.vw(8, 960);
+      padding: func.vw(12, 720);
+    }
+  }
+
+  @media (max-width: 540px) {
+    padding: func.vw(12, 540);
+
+    &__start{
+      gap: func.vw(8, 540);
+      padding: func.vw(12, 540);
+    }
+  }
+
+  @media (max-width: 420px) {
+    padding: func.vw(12, 420);
+
+    &__start{
+      gap: func.vw(8, 420);
+      padding: func.vw(12, 540);
+    }
+  }
 }

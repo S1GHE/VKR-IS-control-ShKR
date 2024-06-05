@@ -2,6 +2,7 @@
 .header{
   height: 100vh;
   position: relative;
+  background-color: var(--white);
   padding: func.vw(32, 1920) func.vw(16, 1920);
   box-shadow: 10px 4px 35px 0 rgba(34, 60, 80, 0.2);
 

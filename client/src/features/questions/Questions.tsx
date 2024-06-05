@@ -1,30 +1,44 @@
 import cls from "@src/features/questions/Questions.module.scss";
 import {TextModule} from "@src/shared/scss";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
+import {Key, FC} from "react";
 
-export const Questions = () => {
+export interface IQuestions{
+  ID: string;
+  Name: string;
+  Phone: string;
+  Email: string;
+  CreatedAt: string;
+  key: Key
+}
+
+export const Questions:FC<IQuestions> = (props) => {
+  const {
+    ID, Name, Email, Phone, CreatedAt, key
+  } = props;
+
   return (
-    <div className={cls.q_row}>
-      <div className={cls.q_cell}>
-        <h6 className={TextModule.p_16_bold}>Ефим</h6>
-        <p className={TextModule.p_12}>ID: 05f478d4-b851-47a2-9dd3-9995d67135f8</p>
+    <div className={cls.q_row} key={key}>
+      <div className={cls.q_cell__start}>
+        <h6 className={TextModule.p_16_bold}>{Name}</h6>
+        <p className={TextModule.p_12}>ID: {ID}</p>
       </div>
 
       <div className={cls.q_cell}>
         <p className={TextModule.p_16}>
-          2024-06-04 14:22:54
+          {CreatedAt}
         </p>
       </div>
 
       <div className={cls.q_cell}>
         <p className={TextModule.p_16}>
-          +7 (993) 856-62-74
+          {Phone}
         </p>
       </div>
 
       <div className={cls.q_cell}>
         <p className={TextModule.p_16}>
-          maksim69@yandex.ru
+          {Email}
         </p>
       </div>
 

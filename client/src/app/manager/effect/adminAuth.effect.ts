@@ -3,6 +3,8 @@ import {Admin, TAdminLogin} from "@src/entities/admin";
 
 export const loginFx = createEffect(async (data: TAdminLogin) => {
   const response = await Admin.login(data)
+
+  console.log(response.data.token)
   return response.data.token;
 });
 
