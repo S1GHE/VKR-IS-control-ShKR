@@ -1,6 +1,7 @@
 @use "@src/shared/scss/func/func";
 
 .main{
+  background-color: var(--gray-light);
   align-items: flex-start;
   gap: func.vw(32, 1920);
 

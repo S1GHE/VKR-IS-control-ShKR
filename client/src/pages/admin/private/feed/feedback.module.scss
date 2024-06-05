@@ -1,0 +1,23 @@
+@use "@src/shared/scss/func/func";
+
+.main{}
+
+.table{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.header{
+  display: contents;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}

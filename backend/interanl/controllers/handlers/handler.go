@@ -70,6 +70,14 @@ func (h *Handlers) New() *gin.Engine {
 			user.POST("/register", h.RegisterNewUser)
 			user.POST("/login", h.LoginUser)
 		}
+
+		var application = api.Group("/application")
+		{
+			application.POST("/", h.CreateApplication)
+			application.GET("/", h.AdminAuthenticateJWT(), h.GetAllApplications)
+			application.GET("/:id", h.AdminAuthenticateJWT(), h.GetApplicationByID)
+			application.PUT("/", h.AdminAuthenticateJWT(), h.UpdateApplicationStatus)
+		}
 	}
 
 	router.Use(staticCORS())
