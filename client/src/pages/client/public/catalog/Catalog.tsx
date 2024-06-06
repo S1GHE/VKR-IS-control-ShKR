@@ -143,7 +143,7 @@ export const Catalog = () => {
               курс для вашего ребенка.
             </p>
           </div>
-            <LinkBase state={"green"} to="/#consultation">
+            <LinkBase hashLink state={"green"} to={'/#consultation'}>
               <p className={TextModule.p_14}>Записаться на консультацию</p>
             </LinkBase>
         </div>
