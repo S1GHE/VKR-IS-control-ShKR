@@ -1,35 +1,66 @@
 @use "@src/shared/scss/func/func";
 
+.headers{
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: func.vw(16, 1920);
+  
+  @media (max-width: 1440px) {
+    padding: func.vw(16, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding: func.vw(16, 960);
+    margin-top: func.vw(16, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-top: func.vw(16, 720);
+    padding: func.vw(16, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-top: func.vw(16, 540);
+    padding: func.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-top: func.vw(16, 420);
+    padding: func.vw(16, 420);
+  }
+}
+
 .body{
   display: flex;
   align-items: flex-start;
   gap: func.vw(16, 1920);
-  margin-block: func.vw(32, 1920);
+  margin-block: func.vw(24, 1920);
 
   @media (max-width: 1440px) {
-    margin-block: func.vw(32, 1440);
+    margin-block: func.vw(24, 1440);
     gap: func.vw(16, 1440);
   }
 
   @media (max-width: 960px) {
     height: 100vh;
-    margin-block: func.vw(32, 960);
+    margin-block: func.vw(24, 960);
     gap: func.vw(16, 960);
     flex-direction: column;
   }
 
   @media (max-width: 720px) {
-    margin-block: func.vw(32, 720);
+    margin-block: func.vw(24, 720);
     gap: func.vw(16, 720);
   }
 
   @media (max-width: 540px) {
-    margin-block: func.vw(32, 540);
+    margin-block: func.vw(16, 540);
     gap: func.vw(16, 540);
   }
 
   @media (max-width: 420px) {
-    margin-block: func.vw(32, 420);
+    margin-block: func.vw(16, 420);
     gap: func.vw(16, 420);
   }
 }
@@ -43,12 +74,14 @@
 
   @media (max-width: 960px) {
     order: 2;
+    width: 100%;
+    height: 100vh;
   }
 }
 
 .table_head{
   display: grid;
-  grid-template-columns: repeat(5, 200px);
+  grid-template-columns: repeat(5, 180px);
   gap: func.vw(12, 1920);
   
   @media (max-width: 1440px) {
@@ -114,12 +147,64 @@
 }
 
 .filters{
+  display: flex;
+  flex-direction: column;
+  gap: func.vw(8, 1920);
   background-color: white;
   width: max-content;
   border-radius: 10px;
   padding: func.vw(12, 1920);
 
+  &__icons{
+    display: flex;
+    align-items: center;
+    gap: func.vw(8, 1920);
+  }
+  
+  @media (max-width: 1440px) {
+    gap: func.vw(8, 1440);
+    padding: func.vw(12, 1440);
+
+    &__icons{
+      gap: func.vw(8, 1440);
+    }
+  }
+
   @media (max-width: 960px) {
+    width: 100%;
     order: 1;
+    gap: func.vw(8, 960);
+    padding: func.vw(12, 960);
+
+    &__icons{
+      gap: func.vw(8, 960);
+    }
+  }
+
+  @media (max-width: 720px) {
+    gap: func.vw(8, 720);
+    padding: func.vw(12, 720);
+
+    &__icons{
+      gap: func.vw(8, 720);
+    }
+  }
+
+  @media (max-width: 540px) {
+    gap: func.vw(8, 540);
+    padding: func.vw(12, 540);
+
+    &__icons{
+      gap: func.vw(8, 540);
+    }
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(8, 420);
+    padding: func.vw(12, 420);
+
+    &__icons{
+      gap: func.vw(8, 420);
+    }
   }
 }

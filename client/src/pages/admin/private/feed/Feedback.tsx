@@ -3,24 +3,58 @@ import cls from "@src/pages/admin/private/feed/feedback.module.scss";
 import {ContainerModule, TextModule} from "@src/shared/scss";
 import {QuestionsService, TQuestions} from "@src/entities/questions";
 import {useEffect, useState} from "react";
+import {Search} from "@src/features/search";
 
 export const Feedback = () => {
   const [questions, setQuestions] = useState<Array<TQuestions>>([]);
+  const [searchEmail, setSearchEmail] = useState<string>('');
+  const [searchPhone, setSearchPhone] = useState<string>('');
+  const [searchName, setSearchName] = useState<string>('');
+  const [filterQuestions, setFilterQuestions] = useState<Array<TQuestions>>([])
+
+  useEffect(() => {
+    if(!!searchEmail){
+      setFilterQuestions(
+        questions.filter((q) => q.Email.toLowerCase().includes(searchEmail.toLowerCase()))
+      )
+    }else {
+      setFilterQuestions(questions)
+    }
+  }, [questions, searchEmail]);
+
+  useEffect(() => {
+    if(!!searchPhone){
+      setFilterQuestions(
+        questions.filter((q) => q.Phone.toLowerCase().includes(searchPhone.toLowerCase()))
+      )
+    }
+    else {
+      setFilterQuestions(questions)
+    }
+  }, [questions, searchPhone])
+
+  useEffect(() => {
+    if(!!searchName){
+      setFilterQuestions(
+        questions.filter((q) => q.Name.toLowerCase().includes(searchName.toLowerCase()))
+      )
+    }
+    else {
+      setFilterQuestions(questions)
+    }
+  }, [searchName, searchPhone])
 
   useEffect(() => {
     QuestionsService.GetAllRecord().then(
       (res) => {
         setQuestions(res.data.question)
       }
-    ).catch((err) => console.log(err))
-
+    )
   }, []);
-
-  console.log(questions)
 
   return (
     <section className={ContainerModule.wrapper}>
-      <div>
+      <div className={cls.headers}>
         <h1 className={TextModule.h_32}>
           Обратная связь
         </h1>
@@ -72,12 +106,24 @@ export const Feedback = () => {
             </div>
           </div>
 
-          {questions.map(el => <Questions
+          {filterQuestions.map(el => <Questions
             ID={el.ID} Name={el.Name} Phone={el.Phone} Email={el.Email} CreatedAt={el.CreatedAt} key={el.ID}/>)}
         </div>
 
         <div className={cls.filters}>
-          Фильтры
+          <div className={cls.filters__icons}>
+            <p className={TextModule.p_16}>Фильтры</p>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-filter"
+                 viewBox="0 0 16 16">
+              <path
+                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+            </svg>
+          </div>
+
+          <Search searchValue={searchName} setSearchValue={setSearchName}>Поиск по Имени</Search>
+          <Search searchValue={searchEmail} setSearchValue={setSearchEmail}>Поиск по Email</Search>
+          <Search searchValue={searchPhone} setSearchValue={setSearchPhone}>Поиск по Номеру</Search>
         </div>
       </div>
     </section>

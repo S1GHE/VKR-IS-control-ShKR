@@ -2,7 +2,7 @@
 
 .q_row {
   display: grid;
-  grid-template-columns: repeat(5, 200px);
+  grid-template-columns: repeat(5, 180px);
   gap: func.vw(12, 1920);
   align-items: center;
   padding: func.vw(12, 1920);
