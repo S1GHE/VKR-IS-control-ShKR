@@ -32,18 +32,22 @@
   @media (max-width: 1440px) {
     gap: func.vw(8, 1440);
   }
-  @media (max-width: 960px) {
+  @media (max-width: 959px) {
+    margin-block: 0;
     gap: func.vw(8, 960);
-    padding-inline: func.vw(24, 1920);
+    padding: func.vw(32, 960) func.vw(16, 960);
   }
   @media (max-width: 720px) {
     gap: func.vw(8, 720);
+    padding: func.vw(32, 720) func.vw(16, 720);
   }
   @media (max-width: 540px) {
     gap: func.vw(8, 540);
+    padding: func.vw(32, 540) func.vw(16, 540);
   }
   @media (max-width: 420px) {
     gap: func.vw(8, 420);
+    padding: func.vw(32, 420) func.vw(16, 420);
   }
 }
 
@@ -61,8 +65,9 @@
     width: 100%;
   }
 
-  @media (max-width: 960px) {
-    margin-block: func.vw(24, 960) func.vw(32, 1920);
+  @media (max-width: 959px) {
+    margin-top: func.vw(24, 960);
+    padding: 0;
     position: static;
   }
 }

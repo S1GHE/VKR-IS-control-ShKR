@@ -60,7 +60,7 @@ export const Consultation = () => {
           </div>
           {
             inputs.map((el, index) =>
-              <div className={cls.input}>
+              <div className={cls.input} key={el.input.tag}>
                 <InputValid validators={el.validators}
                             key={index}
                             label={el.input.label && el.input.label}
@@ -72,8 +72,7 @@ export const Consultation = () => {
                   />
                 </InputValid>
               </div>
-            )
-          }
+            )}
           <div className={useClass([cls.agreement, TextModule.p_12_white])}>
             <div><Checkbox variety={"blue"} checkValue={isAgree} setCheckValue={setIsAgree}/></div>
             <p className={TextModule.p_14}>

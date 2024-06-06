@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import cls from "@src/widgets/layout/client/section/footer/Footer.module.scss"
 import {TextModule} from "@src/shared/scss";
 import {useClass} from "@src/shared/hooks";
@@ -7,8 +7,19 @@ import VKLogo from "@src/shared/assets/icons/logo/vkLogo.svg";
 import TGLogo from "@src/shared/assets/icons/logo/tgLogo.svg";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {Link} from "react-router-dom";
+import {useUnit} from "effector-react";
+import {$allData, GetCategories} from "@src/app/manager";
+import {scrollToCenter} from "@src/shared/utils";
 
 export const Footer = () => {
+  const {categories} = useUnit($allData);
+
+  useEffect(() => {
+    if (categories.length != 0) {
+      GetCategories().finally();
+    }
+  }, []);
+
   return (
     <footer className={cls.container}>
       <div className={cls.wrapper}>
@@ -32,16 +43,15 @@ export const Footer = () => {
         <div className={cls.content}>
           <div className={useClass([TextModule.p_16, cls.section])}>
             <div className={TextModule.p_16_bold}>Направления</div>
-            <div>Звукорежиссура</div>
-            <div>Фото и видеопроизводство</div>
-            <div>Дизайн</div>
-            <div>VR и AR</div>
+            {categories.map((category) =>
+              <Link to={`/catalog/${category.ID}`}>{category.Name}</Link>
+            )}
           </div>
           <div className={useClass([TextModule.p_16, cls.section])}>
             <div className={TextModule.p_16_bold}>Дополнительно</div>
-            <Link to={'#consultation'}>Консультация</Link>
-            <div>Наша команда</div>
-            <div>Локация</div>
+            <a onClick={() => scrollToCenter("consultation")}>Консультация</a>
+            <a>Наша команда</a>
+            <a>Локация</a>
           </div>
         </div>
       </div>
