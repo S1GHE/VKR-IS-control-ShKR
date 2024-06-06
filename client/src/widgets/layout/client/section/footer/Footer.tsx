@@ -9,7 +9,7 @@ import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {Link} from "react-router-dom";
 import {useUnit} from "effector-react";
 import {$allData, GetCategories} from "@src/app/manager";
-import {scrollToCenter} from "@src/shared/utils";
+import {HashLink} from "react-router-hash-link"
 
 export const Footer = () => {
   const {categories} = useUnit($allData);
@@ -49,9 +49,9 @@ export const Footer = () => {
           </div>
           <div className={useClass([TextModule.p_16, cls.section])}>
             <div className={TextModule.p_16_bold}>Дополнительно</div>
-            <a onClick={() => scrollToCenter("consultation")}>Консультация</a>
-            <a>Наша команда</a>
-            <a>Локация</a>
+            <HashLink to={"/#consultation"}>Консультация</HashLink>
+            <HashLink to={"/#ourTeam"}>Наша команда</HashLink>
+            <HashLink to={"/#location"}>Локация</HashLink>
           </div>
         </div>
       </div>

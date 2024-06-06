@@ -1,25 +1,5 @@
 @use "@src/shared/scss/func/func";
 
-.locationContainer {
-  margin-block: func.vw(20, 1920);
-
-	@media (max-width: 1440px) {
-    margin-block: func.vw(20, 1440);
-	}
-	@media (max-width: 960px) {
-    margin-block: func.vw(20, 1440);
-	}
-	@media (max-width: 720px) {
-    margin-block: func.vw(20, 1440);
-	}
-	@media (max-width: 540px) {
-    margin-block: func.vw(20, 540);
-	}
-	@media (max-width: 420px) {
-    margin-block: func.vw(20, 420);
-	}
-}
-
 .head {
 	padding-block: func.vw(20, 1920);
 	padding-inline: func.vw(32, 1920);
@@ -46,22 +26,26 @@
 	}
 }
 
-.iframe {
-	border-radius: func.vw(10, 1920);
+.TeamCards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: func.vw(6, 1920);
 
 	@media (max-width: 1440px) {
-		border-radius: func.vw(10, 1440);
+		gap: func.vw(6, 1440);
 	}
 	@media (max-width: 960px) {
-		border-radius: func.vw(10, 960);
+		gap: func.vw(6, 960);
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 	@media (max-width: 720px) {
-		border-radius: func.vw(10, 720);
+		gap: func.vw(6, 720);
+		grid-template-columns: 1fr 1fr;
 	}
 	@media (max-width: 540px) {
-		border-radius: func.vw(10, 540);
+		gap: func.vw(6, 540);
 	}
 	@media (max-width: 420px) {
-		border-radius: func.vw(10, 420);
+		gap: func.vw(6, 420);
 	}
 }

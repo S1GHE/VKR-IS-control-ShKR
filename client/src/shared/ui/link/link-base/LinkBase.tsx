@@ -8,22 +8,23 @@ import {HashLink} from "react-router-hash-link"
 export interface ILinkBase extends TBaseLink {
   state: "green" | "gray"
   hashLink?: boolean
+  className?: string
 }
 
 export const LinkBase:FC<ILinkBase> = (props) => {
-  const {children, to, key, state, hashLink = false} = props;
+  const {children, to, key, state, hashLink = false, className} = props;
 
   return (
     <>
       {hashLink ?
         <HashLink to={to} key={key} className={useClass([
-            cls.base_link, cls[state]
+            cls.base_link, cls[state], className
           ])}>
           {children}
         </HashLink>
       :
         <Link to={to} key={key} className={useClass([
-          cls.base_link, cls[state]
+          cls.base_link, cls[state], className
         ])}>
           {children}
         </Link>

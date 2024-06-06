@@ -4,8 +4,9 @@ import {RightModal} from "@src/features/modals";
 import cls from "@src/widgets/course-info-modal/CourseInfo.module.scss";
 import {TextModule} from "@src/shared/scss";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
-import {LinkBase} from "@src/shared/ui/link";
-import {Main} from "@src/pages/admin/private/main/Main";
+import {HashLink} from "react-router-hash-link"
+import {useClass} from "@src/shared/hooks";
+
 
 interface CourseInfoProps {
   selectedCourse: TCourses,
@@ -88,11 +89,11 @@ export const CourseInfo: FC<CourseInfoProps> = ({selectedCourse, setSelectedCour
                   </div>
 
                   <div className={cls.description_course__payment}>
+                          <HashLink className={useClass([TextModule.p_14, cls.hashLink])} to={"/#consultation"}>
                       <MainBtn state={"black"} className={cls.description_course__payment__btn}>
-                          <p className={TextModule.p_14}>
                               Задать вопрос
-                          </p>
                       </MainBtn>
+                          </HashLink>
                       <MainBtn state={"green"} className={cls.description_course__payment__btn_pay}>
                           <p className={TextModule.p_14}>
                               Купить за<span className={TextModule.p_14}> {selectedCourse.CoursePrice}₽</span>

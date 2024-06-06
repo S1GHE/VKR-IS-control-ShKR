@@ -1,0 +1,87 @@
+@use "src/shared/scss/func/func";
+
+.cardContainer {
+	overflow: hidden;
+	position: relative;
+	height: func.vw(430, 1920);
+	width: 100%;
+	padding: func.vw(20, 1920);
+	display: flex;
+	flex-direction: column;;
+	justify-content: space-between;
+	color: var(--white);
+	border-radius: func.vw(12, 1920);
+
+	&:hover {
+		.hoverSection {
+			opacity: 1;
+		}
+	}
+
+	@media (max-width: 1440px) {
+		height: func.vw(430, 1440);
+		padding: func.vw(20, 1440);
+		border-radius: func.vw(12, 1440);
+	}
+	@media (max-width: 960px) {
+		height: func.vw(430, 960);
+		border-radius: func.vw(12, 960);
+		padding: func.vw(20, 960);
+	}
+	@media (max-width: 720px) {
+		height: func.vw(430, 720);
+		border-radius: func.vw(12, 720);
+		padding: func.vw(20, 720);
+	}
+	@media (max-width: 540px) {
+		height: func.vw(430, 540);
+		border-radius: func.vw(12, 540);
+		padding: func.vw(20, 540);
+	}
+	@media (max-width: 420px) {
+		height: func.vw(430, 420);
+		border-radius: func.vw(12, 420);
+		padding: func.vw(20, 420);
+	}
+}
+
+.backgroundImage {
+	position: absolute;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	object-position: center;
+	object-fit: cover;
+}
+
+.header {
+	padding-bottom: func.vw(5, 1920);
+
+	@media (max-width: 1440px) {
+		padding-bottom: func.vw(5, 1440);
+	}
+	@media (max-width: 960px) {
+		padding-bottom: func.vw(5, 960);
+	}
+	@media (max-width: 720px) {
+		padding-bottom: func.vw(5, 720);
+	}
+	@media (max-width: 540px) {
+		padding-bottom: func.vw(5, 540);
+	}
+	@media (max-width: 420px) {
+		padding-bottom: func.vw(5, 420);
+	}
+}
+
+.hoverSection {
+	opacity: 0;
+	transition-duration: 300ms;
+	transition-property: opacity;
+
+	@media (max-width: 960px) {
+		opacity: 1;
+	}
+}
