@@ -43,7 +43,7 @@ export const Questions:FC<IQuestions> = (props) => {
       </div>
 
       <div>
-        <MainBtn state={"gray"}>
+        <MainBtn state={"gray"} to={`mailto:${Email}}`}>
           <p className={TextModule.p_16}>
             Написать
           </p>
