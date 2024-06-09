@@ -1,5 +1,5 @@
-import {Admin, TAdminLogin} from "@src/entities/admin/admin.service";
+import {Admin, TAdminLogin, TAdmin} from "@src/entities/admin/admin.service";
 
 export {
-  Admin, TAdminLogin
+  Admin, TAdminLogin, TAdmin
 }

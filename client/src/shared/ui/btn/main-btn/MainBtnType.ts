@@ -5,4 +5,5 @@ export interface IMainBtnType extends IBaseBtnType{
     className?: string | undefined
     disabled?: boolean | undefined
     to?: string
+    type?: "submit"
 }

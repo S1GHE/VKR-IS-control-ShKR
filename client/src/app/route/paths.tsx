@@ -22,8 +22,6 @@ export const AdminRoutes: Array<IPaths> = [
   // Дашборды
   {to: "/admin/home", element: <MainAdmin/>},
   {to: "/admin/customer", element: <CustomerAdmin/>},
-  // Аналитка
-  {to: "/admin/analytics", element: <AnalyticsChunk/>},
   // Заявки на курсы
   {to: "/admin/application", element: <ApplicationChunk/>},
   // Обратная свзь

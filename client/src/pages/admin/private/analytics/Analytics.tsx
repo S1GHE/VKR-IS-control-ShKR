@@ -1,7 +1,7 @@
 import * as echarts from 'echarts';
 import { useEffect, useRef } from 'react';
 import cls from "@src/pages/admin/private/analytics/analitic.module.scss"
-import {ContainerModule} from "@src/shared/scss";
+import {ContainerModule, TextModule} from "@src/shared/scss";
 
 export const Analytics = () => {
   const lineChatRef = useRef<HTMLDivElement>(null);
@@ -173,27 +173,27 @@ export const Analytics = () => {
 
   return (
     <section className={ContainerModule.wrapper}>
-      <div>
-        Аналитика
+      <div className={cls.header}>
+        <h2 className={TextModule.h_32}>Аналитика</h2>
       </div>
 
       <div className={cls.all_charts}>
         <div className={cls.charts_slice}>
           <div className={cls.bg_charts}>
-            <div ref={lineChatRef} style={{width: '350px', height: '350px'}}/>
+            <div ref={lineChatRef} style={{width: '350px', height: '300px'}}/>
           </div>
 
           <div className={cls.bg_charts}>
-            <div ref={PieChart} style={{width: '350px', height: '350px'}}/>
+            <div ref={PieChart} style={{width: '350px', height: '300px'}}/>
           </div>
 
           <div className={cls.bg_charts}>
-            <div ref={UsersPieChart} style={{width: '350px', height: '350px'}}/>
+            <div ref={UsersPieChart} style={{width: '350px', height: '300px'}}/>
           </div>
         </div>
 
         <div className={cls.bg_charts}>
-          <div ref={BigLineChart} style={{width: '100%', height: '380px'}}/>
+          <div ref={BigLineChart} style={{width: '100%', height: '320px'}}/>
         </div>
       </div>
 

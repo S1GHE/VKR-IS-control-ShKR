@@ -1,15 +1,65 @@
 @use "src/shared/scss/func/func";
-
 .text_header{
-  background-color: white;
+  background-color: var(--white);
+  margin-block: func.vw(16, 1920);
+  padding: func.vw(12, 1920);
+  border-radius: func.vw(10, 1920);
+
+  @media (max-width: 1440px) {
+    margin-block: func.vw(16, 1440);
+    padding: func.vw(12, 1440);
+    border-radius: func.vw(10, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: func.vw(16, 960);
+    padding: func.vw(12, 960);
+    border-radius: func.vw(10, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: func.vw(16, 720);
+    padding: func.vw(12, 720);
+    border-radius: func.vw(10, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(16, 540);
+    padding: func.vw(12, 540);
+    border-radius: func.vw(10, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: func.vw(16, 420);
+    padding: func.vw(12, 420);
+    border-radius: func.vw(10, 420);
+  }
+}
+
+.body_data{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-block: func.vw(32, 1920);
+  gap: func.vw(12, 1920);
+}
+
+.filters{
+  order: 1;
+  width: 95%;
+  background-color: var(--white);
+  padding: func.vw(12, 1920);
+  display: flex;
+  gap: func.vw(8, 1920);
+  border-radius: 10px;
 }
 
 .table_body{
+  order: 2;
   border-radius: 10px;
-  margin-block: func.vw(32, 1920);
   padding: func.vw(32, 1920);
-  width: 70%;
-  height: 80vh;
+  width: 95%;
+  height: 75vh;
   overflow: auto;
   background-color: white;
 }
@@ -22,12 +72,12 @@
 .table th,
 .table td {
   border-bottom: 1px solid #ddd;
-  padding: 8px;
+  padding: func.vw(8, 1920);
 }
 
 .table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: func.vw(12, 1920);
+  padding-bottom: func.vw(12, 1902);
   text-align: left;
   background-color: white;
   color: var(--black);

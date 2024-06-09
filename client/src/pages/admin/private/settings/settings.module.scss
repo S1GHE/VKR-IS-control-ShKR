@@ -1,0 +1,60 @@
+@use "src/shared/scss/func/func";
+.text_header{
+  background-color: var(--white);
+  margin-block: func.vw(16, 1920);
+  padding: func.vw(12, 1920);
+  border-radius: func.vw(10, 1920);
+
+  @media (max-width: 1440px) {
+    margin-block: func.vw(16, 1440);
+    padding: func.vw(12, 1440);
+    border-radius: func.vw(10, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: func.vw(16, 960);
+    padding: func.vw(12, 960);
+    border-radius: func.vw(10, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: func.vw(16, 720);
+    padding: func.vw(12, 720);
+    border-radius: func.vw(10, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(16, 540);
+    padding: func.vw(12, 540);
+    border-radius: func.vw(10, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: func.vw(16, 420);
+    padding: func.vw(12, 420);
+    border-radius: func.vw(10, 420);
+  }
+}
+
+.add_course{
+  position: relative;
+  border-radius: 10px;
+  background-color: white;
+  padding: func.vw(32, 1920);
+  gap: func.vw(16, 1920);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  height: 80vh;
+
+  button{
+    position: absolute;
+    bottom: func.vw(32, 1920);
+  }
+}
+
+.flex_add{
+  display: flex;
+  gap: func.vw(32, 1920);
+}
