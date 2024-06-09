@@ -1,5 +1,25 @@
 @use "@src/shared/scss/func/func";
 
+.container {
+	padding-bottom: func.vw(32, 1920);
+
+	@media (max-width: 1440px) {
+		padding-bottom: func.vw(20, 1440);
+	}
+	@media (max-width: 960px) {
+		padding-bottom: func.vw(20, 1440);
+	}
+	@media (max-width: 720px) {
+		padding-bottom: func.vw(20, 1440);
+	}
+	@media (max-width: 540px) {
+		padding-bottom: func.vw(20, 540);
+	}
+	@media (max-width: 420px) {
+		padding-bottom: func.vw(20, 420);
+	}
+}
+
 .head {
 	padding-block: func.vw(20, 1920);
 	padding-inline: func.vw(32, 1920);

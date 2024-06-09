@@ -6,6 +6,7 @@ import {TextModule} from "@src/shared/scss";
 import {MainBtn} from "@src/shared/ui/btn/main-btn/MainBtn";
 import {HashLink} from "react-router-hash-link"
 import {useClass} from "@src/shared/hooks";
+import {PurchaseForm} from "@src/widgets/purchase-login-form";
 
 
 interface CourseInfoProps {
@@ -15,6 +16,7 @@ interface CourseInfoProps {
 
 export const CourseInfo: FC<CourseInfoProps> = ({selectedCourse, setSelectedCourse}) => {
   const [coursesDesc, setCoursesDesc] = useState<Array<TCorsesDesc>>([])
+  const [isFormOpen, setIsFormOpen] = useState(false)
 
   useEffect(() => {
     if (selectedCourse) {
@@ -23,7 +25,6 @@ export const CourseInfo: FC<CourseInfoProps> = ({selectedCourse, setSelectedCour
       )
     }
   }, [selectedCourse]);
-
 
   return (
     <RightModal isOpen={!!selectedCourse} setIsOpen={(state: null) => setSelectedCourse(state)}>
@@ -94,7 +95,7 @@ export const CourseInfo: FC<CourseInfoProps> = ({selectedCourse, setSelectedCour
                               Задать вопрос
                       </MainBtn>
                           </HashLink>
-                      <MainBtn state={"green"} className={cls.description_course__payment__btn_pay}>
+                      <MainBtn onClick={() => setIsFormOpen(true)} state={"green"} className={cls.description_course__payment__btn_pay}>
                           <p className={TextModule.p_14}>
                               Купить за<span className={TextModule.p_14}> {selectedCourse.CoursePrice}₽</span>
                           </p>
@@ -103,6 +104,7 @@ export const CourseInfo: FC<CourseInfoProps> = ({selectedCourse, setSelectedCour
               </div>
           </div>
       }
+      <PurchaseForm setIsOpen={setIsFormOpen} isOpen={isFormOpen}/>
     </RightModal>
   );
 };

@@ -1,0 +1,87 @@
+@use "@src/shared/scss/func/func";
+
+.head {
+	padding-block: func.vw(8, 1920);
+
+	@media (max-width: 1440px) {
+		padding-block: func.vw(8, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding-block: func.vw(8, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding-block: func.vw(8, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding-block: func.vw(8, 540);
+	}
+
+	@media (max-width: 420px) {
+		padding-block: func.vw(8, 420);
+	}
+}
+
+.input {
+	text-align: initial;
+	padding-bottom: func.vw(8, 1920);
+	width: 100%;
+
+	@media (max-width: 1440px) {
+		padding-bottom: func.vw(8, 1440);
+	}
+
+	@media (max-width: 960px) {
+		padding-bottom: func.vw(8, 960);
+	}
+
+	@media (max-width: 720px) {
+		padding-bottom: func.vw(8, 720);
+	}
+
+	@media (max-width: 540px) {
+		padding-bottom: func.vw(8, 540);
+	}
+
+	@media (max-width: 420px) {
+		padding-bottom: func.vw(8, 420);
+	}
+}
+
+.buttons {
+	width: 100%;
+	display: flex;
+	gap: func.vw(8, 1920);
+	padding-top: func.vw(15, 1920);
+
+	@media (max-width: 1440px) {
+		gap: func.vw(8, 1440);
+		padding-top: func.vw(15, 1440);
+	}
+
+	@media (max-width: 960px) {
+		gap: func.vw(8, 960);
+		padding-top: func.vw(15, 960);
+	}
+
+	@media (max-width: 720px) {
+		gap: func.vw(8, 720);
+		padding-top: func.vw(15, 720);
+	}
+
+	@media (max-width: 540px) {
+		gap: func.vw(8, 540);
+		padding-top: func.vw(15, 540);
+	}
+
+	@media (max-width: 420px) {
+		gap: func.vw(8, 420);
+		padding-top: func.vw(15, 420);
+	}
+
+	button {
+		width: 100%;
+	}
+}
