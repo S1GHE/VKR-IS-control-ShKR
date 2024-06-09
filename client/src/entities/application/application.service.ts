@@ -1,5 +1,5 @@
 import {AxiosResponse} from "axios";
-import {instance} from "@src/app/api";
+import {authInstance, instance} from "@src/app/api";
 
 export type TApplications = {
   ID: string;
@@ -16,8 +16,20 @@ export type TGetApplicationRespnse = {
   status: number;
 }
 
+export type TPutApplications = {
+  msg: string,
+  status: number
+}
+
 export class ApplicationService{
   static async get(): Promise<AxiosResponse<TGetApplicationRespnse>>{
     return await instance.get("/application/")
+  }
+
+  static async update(id: string, NewStatus: string): Promise<AxiosResponse<TPutApplications>>{
+    return await authInstance.put("/application/", {
+      ID: id,
+      Status:NewStatus
+    })
   }
 }

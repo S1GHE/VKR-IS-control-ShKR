@@ -1,0 +1,99 @@
+@use "@src/shared/scss/func/func";
+
+.header{
+  background-color: var(--white);
+  margin-block: func.vw(16, 1920);
+  padding: func.vw(12, 1920);
+  border-radius: func.vw(10, 1920);
+
+  @media (max-width: 1440px) {
+    margin-block: func.vw(16, 1440);
+    padding: func.vw(12, 1440);
+    border-radius: func.vw(10, 1440);
+  }
+
+  @media (max-width: 960px) {
+    margin-block: func.vw(16, 960);
+    padding: func.vw(12, 960);
+    border-radius: func.vw(10, 960);
+  }
+
+  @media (max-width: 720px) {
+    margin-block: func.vw(16, 720);
+    padding: func.vw(12, 720);
+    border-radius: func.vw(10, 720);
+  }
+
+  @media (max-width: 540px) {
+    margin-block: func.vw(16, 540);
+    padding: func.vw(12, 540);
+    border-radius: func.vw(10, 540);
+  }
+
+  @media (max-width: 420px) {
+    margin-block: func.vw(16, 420);
+    padding: func.vw(12, 420);
+    border-radius: func.vw(10, 420);
+  }
+}
+
+.all_charts{
+  display: flex;
+  flex-direction: column;
+  gap: func.vw(16, 1920);
+
+  @media (max-width: 1440px) {
+    gap: func.vw(16, 1440);
+  }
+
+  @media (max-width: 960px) {
+    gap: func.vw(16, 960);
+  }
+
+  @media (max-width: 720px) {
+    gap: func.vw(16, 720);
+  }
+
+  @media (max-width: 540px) {
+    gap: func.vw(16, 540);
+  }
+
+  @media (max-width: 420px) {
+    gap: func.vw(16, 540);
+  }
+}
+
+.bg_charts{
+  background-color: var(--white);
+  padding: func.vw(24, 1920);
+  border-radius: 10px;
+
+  @media (max-width: 1440px) {
+    padding: func.vw(24, 1440);
+  }
+
+  @media (max-width: 960px) {
+    padding: func.vw(24, 960);
+  }
+
+  @media (max-width: 720px) {
+    padding: func.vw(24, 720);
+  }
+
+  @media (max-width: 540px) {
+    padding: func.vw(24, 540);
+  }
+
+  @media (max-width: 420px) {
+    padding: func.vw(24, 540);
+  }
+}
+
+.charts_slice{
+  display: flex;
+  gap: func.vw(16, 1920);
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+}

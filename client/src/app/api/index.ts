@@ -1,13 +1,16 @@
 import axios from "axios";
 import {$token} from "@src/app/manager";
 
+// https://a27507-8a9e.c.d-f.pw/api/
+// http://127.0.0.1:8080/api/
+
 export const instance = axios.create({
-  baseURL: "https://a27507-8a9e.c.d-f.pw/api/",
+  baseURL: "http://127.0.0.1:8080/api/",
   timeout: 5000
 })
 
 export const authInstance = axios.create({
-  baseURL: "https://a27507-8a9e.c.d-f.pw/api/",
+  baseURL: "http://127.0.0.1:8080/api/",
   timeout: 5000
 })
 

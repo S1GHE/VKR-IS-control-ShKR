@@ -46,7 +46,7 @@ export const SlideMenu = () => {
                         d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/>
                 </svg>
 
-                <p className={TextModule.p_14}>Дашборды</p>
+                <p className={TextModule.p_14}>Главная</p>
               </MainBtn>
               <MainBtn state={"gray"} to={"/admin/application"} onClick={() => setIsModalOpen(false)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -156,15 +156,7 @@ export const SlideMenu = () => {
                 Настройка курсов
               </p>
             </MainBtn>
-
-            <MainBtn state={"gray"} to={"/admin/analytics"}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                   className="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                      d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-              </svg>
-              <p className={TextModule.p_14}>Аналитка</p>
-            </MainBtn>
+            
           </div>
           <div className={cls.logout_container}>
             <MainBtn state={"black"} onClick={handleClick}>

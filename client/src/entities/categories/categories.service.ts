@@ -14,8 +14,22 @@ export type TGetCategoriesResponse = {
   status: number;
 }
 
+export type TPostCategories={
+  status: number
+  msg: string
+  categoriesId: string,
+}
+
 export class Categories {
   static async getCategories(): Promise<AxiosResponse<TGetCategoriesResponse>>{
     return await instance.get("categories/")
+  }
+
+  static async postCategories(formData: FormData):Promise<AxiosResponse<TPostCategories>>{
+    return await instance.post("categories/", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   }
 }
